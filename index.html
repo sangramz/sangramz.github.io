@@ -1,48 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="AI Prompt Engineer, Blockchain Developer, Python Developer, Full Stack Developer, Generative AI Developer">
-  <meta name="author" content="">
-  <title>Sangram K. Sundaray</title>
-  <link rel="stylesheet" href="assets/css/color.css">
-  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Inconsolata" rel="stylesheet">
-  <link href="https://cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css" rel="stylesheet">
-  <script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter41478434 = new Ya.Metrika({ id:41478434, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/41478434" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sangram K. Sundaray · Senior Software Developer</title>
+  <meta name="description" content="Senior Software Developer specializing in Web Apps, Gen & Agentic AI." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              900: '#1e3a8a',
+            },
+            accent: {
+              500: '#6366f1', // Indigo
+              600: '#4f46e5',
+            }
+          },
+          boxShadow: {
+            'soft': '0 20px 40px -15px rgba(0, 0, 0, 0.05)',
+            'glow': '0 0 20px rgba(59, 130, 246, 0.15)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .mesh-bg {
+      background-color: #f8fafc;
+      background-image:
+        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.1) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.1) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(168, 85, 247, 0.05) 0px, transparent 50%);
+    }
+  </style>
 </head>
-<body>
 
+<body
+  class="mesh-bg text-slate-600 antialiased selection:bg-primary-100 selection:text-primary-900 min-h-screen p-4 md:p-8">
 
+  <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-6 md:gap-8">
 
-<!--Main menu-->
-  <div class="menu">
-    <div class="container">
-      <div class="row">
-        <div class="menu__wrapper d-none d-lg-block col-md-12">
-          <nav class="">
-            <ul>
-              <li><a href="#hello">Intro</a></li>
-              <li><a href="#resume">Experience & Education</a></li>
-              <li><a href="#portfolio">Portfolio</a></li>
-              <li><a href="https://www.koncode.in/">Blog</a></li>
-              <li><a href="Sangram_Resume_2024.pdf">Download CV</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </nav>
-        </div>
-        <div class="menu__wrapper col-md-12 d-lg-none">
-          <button type="button" class="menu__mobile-button">
-            <span><i class="fa fa-bars" aria-hidden="true"></i></span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-<!--Main menu-->
+    <!-- Sidebar / Profile Card -->
+    <aside class="lg:sticky lg:top-8 h-fit space-y-6">
+      <div class="glass-panel rounded-3xl p-8 shadow-soft text-center relative overflow-hidden group">
+        <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-br from-primary-500/10 to-accent-500/10"></div>
 
+<<<<<<< HEAD
 <!-- Mobile menu -->
   <div class="mobile-menu d-lg-none">
     <div class="container">
@@ -82,449 +133,373 @@
               <dt>Address:</dt>
               <dd>JV, Bhubaneswar, India</dd>
             </dl>
+=======
+        <div class="relative">
+          <div
+            class="w-40 h-40 mx-auto rounded-full p-1 bg-white shadow-glow mb-6 transition-transform duration-300 group-hover:scale-105">
+            <img src="https://sangramz.github.io/assets/img/sangram-sundaray.png" alt="Sangram K. Sundaray"
+              class="w-full h-full rounded-full object-cover" />
+>>>>>>> 8d16a08bf0127a1acf02733c6904b58b7af933ec
           </div>
-          <p class="personal-profile__social">
-            <a href="http://github.com/sangramz" target="_blank"><i class="fa fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/sangramz/" target="_blank"><i class="fa fa-linkedin-square"></i></a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </header>
-<!--Header-->
 
-<!--Hello-->
-  <section id="hello" class="container section">
-    <div class="row">
-      <div class="col-md-10">
-        <h2 id="hello_header" class="section__title">Short Intro_</h2>
-        <p class="section__description">
-          <li>7+ years of experiences in Web Apps Development with Skillsets as below: </li>
-           <div style="margin-left: 8%;">
-                - Generative AI: Langchain
-                - dApps|Blockchain - Ethereum and Solidity, Foundry Framework <br>
-                - Web Apps : Python, Django, DRF & LAMP stack, PostgreSQL<br>
-                - Cloud : GCP & AWS
-                
+          <h1 class="text-3xl font-bold text-slate-900 tracking-tight mb-2">Sangram K. Sundaray</h1>
+          <p class="text-sm font-medium gradient-text mb-6">Senior Software Developer<br>(Web Apps, Gen & Agentic AI)
+          </p>
+
+          <div class="flex justify-center gap-3 mb-8">
+            <a href="mailto:sangramz@hotmail.com"
+              class="p-2.5 rounded-full bg-slate-50 text-slate-600 hover:bg-primary-50 hover:text-primary-600 transition-colors border border-slate-100"
+              title="Email">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/sangramz/" target="_blank"
+              class="p-2.5 rounded-full bg-slate-50 text-slate-600 hover:bg-primary-50 hover:text-primary-600 transition-colors border border-slate-100"
+              title="LinkedIn">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+            <a href="https://github.com/sangramz" target="_blank"
+              class="p-2.5 rounded-full bg-slate-50 text-slate-600 hover:bg-primary-50 hover:text-primary-600 transition-colors border border-slate-100"
+              title="GitHub">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+              </svg>
+            </a>
+            <a href="https://sangramz.github.io/Sangram_Resume_2024.pdf"
+              class="p-2.5 rounded-full bg-slate-50 text-slate-600 hover:bg-primary-50 hover:text-primary-600 transition-colors border border-slate-100"
+              title="Download Resume">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="space-y-4 text-left">
+            <div class="p-4 rounded-2xl bg-slate-50/50 border border-slate-100">
+              <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Core Stack</h3>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-medium text-slate-700">Python</span>
+                <span
+                  class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-medium text-slate-700">Django</span>
+                <span
+                  class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-medium text-slate-700">LangChain</span>
+                <span
+                  class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-medium text-slate-700">AWS</span>
+                <span
+                  class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-medium text-slate-700">Docker</span>
               </div>
-           <li>Achievements include:<br>
-            <div style="margin-left: 8%;">
-            - dApps and NFT platform development for Real Estate Assets<br>
-            - Developed Decentralized Logistic app using Ethereum Based Blockchain<br>
-            - Developed a full-fledged Data intensive Web App Single Handedly intended for Debt management agency
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-50/50 border border-slate-100">
+              <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Education</h3>
+              <div class="space-y-3">
+                <div>
+                  <div class="text-sm font-semibold text-slate-800">B.E. Electronics</div>
+                  <div class="text-xs text-slate-500">Hi-Tech College of Eng.</div>
+                  <div class="text-[10px] text-slate-400">2009 — 2013</div>
+                </div>
+              </div>
+            </div>
           </div>
-          </li>
-          <li>Worked for Fortune 500 Client - PwC via IIT, Bhubaneswar backed Start Up </li>      
-          <li>Had also worked in Digital Marketing, Google Search console & Analytics</li>
-        </p>
-        <a href="Sangram_Resume_2024.pdf" class="section_btn site-btn"><img src="assets/img/img_btn_icon.png" alt="">Download CV</a>
-      </div>
-    </div>
-  </section>
-<!--Hello-->
-
-  <hr>
-
-<!--Resume-->
-  <section id="resume" class="container section">
-    <div class="row">
-      <div class="col-md-10">
-        <h2 id="resume_header" class="section__title">Experiences & Education_</h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8 section__resume resume-list">
-        <h3 class="resume-list_title">Work Experiences</h3>
-        <div class="resume-list__block">
-          <p class="resume-list__block-title">ConVoyage Systems Pvt Ltd.</p>
-          <p class="resume-list__block-date">March 2020 - Present</p>
-          <p>
-            Blockchain Developer and Consultant
-          </p>
-            <p style="font-size:14px; padding-left:4%">
-                - Smart Contracts Development, Maintenance for <b>CIFDAQ</b>, via idApps Technologies<br>
-                - <b>Digishare.in</b>Tokenization of Real Estate Assets, dApps Development for a Real State Company using Smart Contracts<br> 
-              
-        </div>
-        <div class="resume-list__block">
-          <p class="resume-list__block-title">Remote/Freelance</p>
-          <p class="resume-list__block-date">April 2018 - March 2020</p>
-          <p>
-            Software Developer (Web & Data)
-          </p>
-            <p style="font-size:14px; padding-left:4%">
-                - <b>ConVoyage Systems:</b> Developed and working presently on Decentralized App Development for logistics using Smart Contracts for mid-size European Firm <br> 
-                - <b>MarvinAI:</b> Developed Intuitive Reseller Management Systems using Python & Django<br>
-                - Worked for Fortune 500 Client - PwC via Neukelp LLP, IIT Bhubaneswar & KIIT TBI<br>
-                - Developed prototype for Document Abstraction Tool Using Python, Django & Postgresql, NLTK<br>
-                - Developed and Tested Named Named Entity Recognition on Legal Text<br>
-                - Reporting & Repository Maintenance
-              </p>
-        </div>
-        <div class="resume-list__block">
-          <p class="resume-list__block-title">SITSIndia</p>
-          <p class="resume-list__block-date">JAN 2015 - APRIL 2018</p>
-          <p>
-            Full Stack Developer (Web & Data)
-          </p>
-            <p style="font-size:14px; padding-left:4%">
-                - Web Apps Development in LAMP Stack, Python-Django Stack & WordPress<br>
-                - Prototyping Small Web Apps for Sales Presentation<br>
-                - Managing Development team to Meet Projects Deadlines<br>
-                - Web Apps Optimization(Google & Zoho Analytics)
-              </p>
-        </div>
-        <div class="resume-list__block">
-          <p class="resume-list__block-title">LIT Solution</p>
-          <p class="resume-list__block-date">JAN 2014 - JAN 2015</p>
-          <p>
-            Web Developer (PHP & MySQL)
-          </p>
-            <p style="font-size:14px; padding-left:4%">
-                - Developed Responsive Web Apps for 15 mid-size clients<br>
-                - Indivual contribution to School Management software using PHP5<br>
-                - Wordpress App Management<br>
-                - Responsive Design and Websites Maintenance<br>
-                - Improving Websites and Web apps Performance using Google Webmaster Tools<br>
-              </p>
-        </div>
-        <div class="resume-list__block">
-          <p class="resume-list__block-title">AuroIN LLC</p>
-          <p class="resume-list__block-date">AUG 2013 - JAN 2014</p>
-          <p>
-            Management Trainee(IT Sales)
-          </p>
-            <p style="font-size:14px; padding-left:4%">
-                - Sales Operations(US & Europe Region)<br>
-                - Sales Follow Up and Business Communication<br>
-              </p>
-        </div>
-
-
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8 section__resume resume-list">
-        <h3 class="resume-list_title">education</h3>
-        <div class="resume-list__block">
-          <p class="resume-list__block-title">Hi-Tech College of Engineering(BPUT), Bhubaneswar </p>
-          <p class="resume-list__block-date">2009 - 2013</p>
-          <p>
-            B.E. in Electronics & Communication
-          </p>
-        </div>
-        <div class="resume-list__block">
-          <p class="resume-list__block-title">Kendriya Vidyalaya, HPCL Jagiroad, Assam</p>
-          <p class="resume-list__block-date">Graduated in 2008</p>
-          <p>
-            - XII<sup>th</sup> Science (2008)<br>
-            - X<sup>th</sup> (2006)<br>
-          </p>
-        </div>
-
-      </div>
-    </div>
-
-  </section>
-<!--Resume-->
-
-<!--Portfolio-->
-  <section id="portfolio" class="container section">
-    <div class="row">
-      <div class="col-md-12">
-        <h2 id="portfolio_header" class="section__title">My projects_</h2>
-      </div>
-    </div>
-
-    <div class="row project-card"  data-toggle="modal" data-target="#" data-portfolio-tag="mobile apps">
-      <div class="col-md-6 col-lg-5 project-card__img">
-        <img class="" src="assets/img/port5.png" alt="project-img">
-      </div>
-      <div class="col-md-6 col-lg-7 project-card__info">
-        <h3 class="project-card__title">CIFDAQ : AI powered Smart Contracts</h3>
-        <p class="project-card__description">
-          "Smart contracts development for CIFDAQ Ethereum Smart Contracts via Solidity, Foundry with interface and app backend in Django(Python)"
-        </p>
-        <p class="project-card__stack">Technologies:</p>
-        <ul class="tags">
-          <li>Solidity</li>
-          <li>Smart Contracts</li>
-          <li>Foundry</li>
-          <li>Django</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="row project-card"  data-toggle="modal" data-target="#" data-portfolio-tag="mobile apps">
-      <div class="col-md-6 col-lg-5 project-card__img">
-        <img class="" src="assets/img/port4.png" alt="project-img">
-      </div>
-      <div class="col-md-6 col-lg-7 project-card__info">
-        <h3 class="project-card__title">Digishares.in: Decentralized Real Estate Application Development</h3>
-        <p class="project-card__description">
-          "dApps development for Real Estate company using Ethereum Smart Contracts via Solidity, Foundry with interface and app backend in Django(Python)"
-        </p>
-        <p class="project-card__stack">Technologies:</p>
-        <ul class="tags">
-          <li>Solidity</li>
-          <li>Smart Contracts</li>
-          <li>Foundry</li>
-          <li>Django</li>
-        </ul>
-      </div>
-    </div>
-
-      <div class="row project-card"  data-toggle="modal" data-target="#" data-portfolio-tag="mobile apps">
-        <div class="col-md-6 col-lg-5 project-card__img">
-          <img class="" src="assets/img/img8.png" alt="project-img">
-        </div>
-        <div class="col-md-6 col-lg-7 project-card__info">
-          <h3 class="project-card__title">Document Abstraction & Automation</h3>
-          <p class="project-card__description">
-            "Developed tool that can automate the analysis and abstraction of PDF Documents"
-          </p>
-          <p class="project-card__stack">Technologies:</p>
-          <ul class="tags">
-            <li>NLTK</li>
-            <li>Python</li>
-            <li>Spacy</li>
-            <li>lexNLP</li>
-          </ul>
         </div>
       </div>
+    </aside>
 
-<div class="row project-card"  data-toggle="modal" data-target="#" data-portfolio-tag="mobile apps">
-        <div class="col-md-6 col-lg-5 project-card__img">
-          <img class="" src="assets/img/port1.png" alt="project-img">
-        </div>
-        <div class="col-md-6 col-lg-7 project-card__info">
-          <h3 class="project-card__title">Predictive Sentiment Analysis for Binary Output</h3>
-          <p class="project-card__description">
-            "Contributed to the team responsible for transforming textual analysis to Predictive Analysis using NLTK"
-          </p>
-          <p class="project-card__stack">Technologies:</p>
-          <ul class="tags">
-            <li>NLTK</li>
-            <li>Python</li>
-            <li>Django</li>
-            <li>Vue</li>
-          </ul>
-        </div>
-      </div>
+    <!-- Main Content -->
+    <main class="space-y-6">
 
-     
-
-    <div class="portfolio-cards">
-      <div class="row project-card" data-toggle="modal" data-target="#port3" data-portfolio-tag="web-sites">
-        <div class="col-md-6 col-lg-5 project-card__img">
-          <img class="" src="assets/img/ob.png" alt="project-img">
-        </div>
-        <div class="col-md-6 col-lg-7 project-card__info">
-          <h3 class="project-card__title">OptimumBrokers - Forex+Crypto Review App</h3>
-          <p class="project-card__description">
-            Full Stack Web Application Develoment.
-          </p>
-          <p class="project-card__stack">Used stack:</p>
-          <ul class="tags">
-            <li>html5</li>
-            <li>css3</li>
-            <li>JavaScript+jquery</li>
-            <li>bootstrap</li>
-          </ul>
-          <a href="" class="project-card__link"></a>
-        </div>
-      </div>
-
-    </div>
-
-
-   <div class="portfolio-cards">
-     <div class="row project-card" data-toggle="modal" data-target="#portfolioModal" data-portfolio-tag="web-sites">
-       <div class="col-md-6 col-lg-5 project-card__img">
-         <img class="" src="assets/img/port3.png" alt="project-img">
-       </div>
-       <div class="col-md-6 col-lg-7 project-card__info">
-         <h3 class="project-card__title">Industriens Inkasso - Enterprise Grade Debt Collection App</h3>
-         <p class="project-card__description">
-           Full Stack(Django Stack) Web Application Develoment.
-         </p>
-         <p class="project-card__stack">Used stack:</p>
-         <ul class="tags">
-           <li>html5</li>
-           <li>css3</li>
-           <li>JavaScript+jquery</li>
-           <li>bootstrap</li>
-           <li>python+django+mysql</li>
-         </ul>
-         <a href="" class="project-card__link"></a>
-       </div>
-     </div>
-
-   </div>
-
-  </section>
-<!--Portfolio-->
-
-
-
-<!--Contact-->
-  <div class="background" style="background-image: url(assets/img/img_bg_main.jpg)">
-    <div id="contact" class="container section">
-      <div class="row">
-        <div class="col-md-12">
-          <p id="contacts_header" class="section__title">Get in touch_</p>
-        </div>
-      </div>
-      <div class="row contacts">
-        <div class="col-md-5 col-lg-4">
-          <div class="contacts__list">
-            <dl class="contact-list">
-              <dt>Phone:</dt>
-              <dd><a href="tel:82344563333">+91-99-3782-6218</a></dd>
-              <dt>Skype:</dt>
-              <dd><a href="skype:iamivanovivan">skype.sangram@gmail.com</a></dd>
-              <dt>Email:</dt>
-              <dd><a href="emails.sangramz@gmail.com">emails.sangramz@gmail.com</a></dd>
-            </dl>
+      <!-- Experience Panel -->
+      <section class="glass-panel rounded-3xl p-8 md:p-10 shadow-soft">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="p-2 rounded-xl bg-primary-50 text-primary-600">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
           </div>
-          <div class="contacts__social">
-            <ul>
-              <li><a href="https://www.linkedin.com/in/sangramz/">Linkedin</a></li>
-              <li><a href="http://github.com/sangramz">GitHub</a></li>
+          <h2 class="text-2xl font-bold text-slate-900">Experience</h2>
+        </div>
+
+        <div class="space-y-12">
+          <!-- Job 1 -->
+          <div class="relative pl-8 md:pl-10 border-l-2 border-slate-100 group">
+            <div
+              class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white border-2 border-primary-500 shadow-[0_0_0_4px_rgba(59,130,246,0.1)] transition-all group-hover:scale-110 group-hover:border-primary-600">
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+              <h3 class="text-lg font-bold text-slate-900">Tech Lead – AI & Web Applications</h3>
+              <span class="px-2.5 py-0.5 rounded-full bg-primary-50 text-primary-700 text-xs font-semibold">Nov 2024 –
+                Present</span>
+            </div>
+            <div class="text-sm font-medium text-slate-500 mb-4">Boldtribe Innovations Pvt Ltd</div>
+
+            <ul class="space-y-2 text-sm text-slate-600 leading-relaxed">
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-400 flex-shrink-0"></span>
+                <span>Led backend API development for Dubai based Islamic Insurance company, integrating AI features
+                  including recommendation systems, sales chatbots, and insurance planning tools.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-400 flex-shrink-0"></span>
+                <span>Developed full backend APIs and full-stack doctor modules for the Zymedics health platform,
+                  incorporating AI-driven diagnostics and prescription generation.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-400 flex-shrink-0"></span>
+                <span>Mentored junior engineers and established standardized architectural patterns adopted
+                  organization-wide.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Job 2 -->
+          <div class="relative pl-8 md:pl-10 border-l-2 border-slate-100 group">
+            <div
+              class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white border-2 border-slate-300 transition-all group-hover:border-primary-500">
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+              <h3 class="text-lg font-bold text-slate-900">Individual Contributor</h3>
+              <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 text-xs font-semibold">Sep 2020 – Nov
+                2024</span>
+            </div>
+            <div class="text-sm font-medium text-slate-500 mb-4">ConVoyage Systems Pvt Ltd</div>
+
+            <ul class="space-y-2 text-sm text-slate-600 leading-relaxed">
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 flex-shrink-0"></span>
+                <span>Led backend development for Fractional Investment platform Digishares.in using Django and Web3
+                  technologies integrated via Infura.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 flex-shrink-0"></span>
+                <span>Architected secure smart contracts for trade execution and compliance.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 flex-shrink-0"></span>
+                <span>Instituted code review processes and security audits, reducing vulnerabilities and improving code
+                  quality.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Job 3 -->
+          <div class="relative pl-8 md:pl-10 border-l-2 border-slate-100 group">
+            <div
+              class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white border-2 border-slate-300 transition-all group-hover:border-primary-500">
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+              <h3 class="text-lg font-bold text-slate-900">Full Stack Developer (Freelance)</h3>
+              <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 text-xs font-semibold">Dec 2018 – Aug
+                2020</span>
+            </div>
+            <div class="text-sm font-medium text-slate-500 mb-4">Global Remote</div>
+
+            <ul class="space-y-2 text-sm text-slate-600 leading-relaxed">
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 flex-shrink-0"></span>
+                <span>Delivered MVP for document abstraction utilizing Django and NLTK for PwC through an IIT
+                  BBSR-backed startup.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 flex-shrink-0"></span>
+                <span>Created reseller management platforms for Marvin.AI to optimize onboarding through
+                  automation.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Job 4 -->
+          <div class="relative pl-8 md:pl-10 border-l-2 border-slate-100 group">
+            <div
+              class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white border-2 border-slate-300 transition-all group-hover:border-primary-500">
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+              <h3 class="text-lg font-bold text-slate-900">Full Stack Developer</h3>
+              <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 text-xs font-semibold">Jan 2015 – Nov
+                2018</span>
+            </div>
+            <div class="text-sm font-medium text-slate-500 mb-4">SITSIndia</div>
+
+            <ul class="space-y-2 text-sm text-slate-600 leading-relaxed">
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 flex-shrink-0"></span>
+                <span>Designed and implemented e-commerce web applications using Python Django and PostgreSQL.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 flex-shrink-0"></span>
+                <span>Developed and maintained multiple full-stack projects emphasizing scalable backend APIs and
+                  responsive frontend interfaces.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Job 5 -->
+          <div class="relative pl-8 md:pl-10 border-l-2 border-slate-100 group">
+            <div
+              class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white border-2 border-slate-300 transition-all group-hover:border-primary-500">
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+              <h3 class="text-lg font-bold text-slate-900">Web Developer (PHP & MySQL)</h3>
+              <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 text-xs font-semibold">Jan 2014 – Jan
+                2015</span>
+            </div>
+            <div class="text-sm font-medium text-slate-500 mb-4">LITIndia</div>
+
+            <ul class="space-y-2 text-sm text-slate-600 leading-relaxed">
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 flex-shrink-0"></span>
+                <span>Redesigned websites to be mobile-responsive and SEO-optimized, enhancing user experience and
+                  search visibility.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 flex-shrink-0"></span>
+                <span>Managed backend improvements and database maintenance for various client projects.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Job 6 -->
+          <div class="relative pl-8 md:pl-10 border-l-2 border-slate-100 group">
+            <div
+              class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white border-2 border-slate-300 transition-all group-hover:border-primary-500">
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+              <h3 class="text-lg font-bold text-slate-900">Management Trainee – US & UK Sales</h3>
+              <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 text-xs font-semibold">Aug 2013 – Dec
+                2013</span>
+            </div>
+            <div class="text-sm font-medium text-slate-500 mb-4">Auroin LLC</div>
+
+            <ul class="space-y-2 text-sm text-slate-600 leading-relaxed">
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 flex-shrink-0"></span>
+                <span>Supported sales operations and client communications targeting US and UK markets.</span>
+              </li>
             </ul>
           </div>
         </div>
-        <div class="col-md-7 col-lg-5">
-          <div class="contacts__form project-card__info">
-            <p class="contacts__form-title">Or just write me a letter here_</p>
-            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
-              <script>
-                hbspt.forms.create({
-                  region: "na1",
-                  portalId: "40183881",
-                  formId: "4492e5b6-42c9-490e-9cc5-38e6aa62fd30"
-                });
-              </script>
-           <!-- <form class="js-form">
-              <div class="form-group">
-                <input class="form-field js-field-name" type="text" placeholder="Your name" required>
-                <span class="form-validation"></span>
-                <span class="form-invalid-icon"><i class="mdi mdi-close" aria-hidden="true"></i></span>
-              </div>
-              <div class="form-group">
-                <input class="form-field js-field-email" type="email"  placeholder="Your e-mail" required>
-                <span class="form-validation"></span>
-                <span class="form-invalid-icon"><i class="mdi mdi-close" aria-hidden="true"></i></span>
-              </div>
-              <div class="form-group">
-                <textarea class="form-field js-field-message" placeholder="Type the message here" required></textarea>
-                <span class="form-validation"></span>
-                <span class="form-invalid-icon"><i class="mdi mdi-close" aria-hidden="true"></i></span>
-              </div>
-              <button class="site-btn site-btn--form" type="submit" value="Send">Send</button>
-            </form>-->
+      </section>
+
+      <!-- Projects Grid -->
+      <section class="grid md:grid-cols-2 gap-6">
+
+        <!-- Zymedics Health -->
+        <div class="glass-panel rounded-3xl p-6 hover:shadow-md transition-shadow">
+          <div class="flex justify-between items-start mb-4">
+            <div class="p-2 rounded-lg bg-blue-50 text-blue-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">HealthTech</span>
           </div>
-          <div class="footer">
-            <p>Thanks for your Time :) Feel free to share your Feedback!</p>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Zymedics Health</h3>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4">Engineered scalable backend APIs and a full-stack
+            doctor portal. Integrated Agentic AI for automated diagnostics and intelligent prescription workflows.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 rounded bg-slate-100 text-[10px] font-semibold text-slate-600">Agentic AI</span>
+            <span class="px-2 py-1 rounded bg-slate-100 text-[10px] font-semibold text-slate-600">Full Stack</span>
           </div>
         </div>
-      </div>
-    </div>
+
+        <!-- Takafulik -->
+        <div class="glass-panel rounded-3xl p-6 hover:shadow-md transition-shadow">
+          <div class="flex justify-between items-start mb-4">
+            <div class="p-2 rounded-lg bg-indigo-50 text-indigo-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">InsurTech</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Takafulik</h3>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4">Developed comprehensive backend systems and admin
+            modules for Islamic insurance. Implemented AI-driven recommendation engines for policy planning.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 rounded bg-slate-100 text-[10px] font-semibold text-slate-600">Backend API</span>
+            <span class="px-2 py-1 rounded bg-slate-100 text-[10px] font-semibold text-slate-600">AI Ops</span>
+          </div>
+        </div>
+
+        <!-- Emireq -->
+        <div class="glass-panel rounded-3xl p-6 hover:shadow-md transition-shadow">
+          <div class="flex justify-between items-start mb-4">
+            <div class="p-2 rounded-lg bg-purple-50 text-purple-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+              </svg>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Media Tech</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Emireq</h3>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4">Architected high-performance backend infrastructure
+            using Django, PostgreSQL, and Docker. Integrated LangChain Vector DB for advanced media retrieval.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 rounded bg-slate-100 text-[10px] font-semibold text-slate-600">Docker</span>
+            <span class="px-2 py-1 rounded bg-slate-100 text-[10px] font-semibold text-slate-600">Vector DB</span>
+          </div>
+        </div>
+
+        <div class="glass-panel rounded-3xl p-6 hover:shadow-md transition-shadow">
+          <div class="flex justify-between items-start mb-4">
+            <div class="p-2 rounded-lg bg-blue-50 text-blue-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">FinTech</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">CIFDAQ</h3>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4">Designed AI-assisted trade governance layer and
+            observability dashboards across multi-chain deployments.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 rounded bg-slate-100 text-[10px] font-semibold text-slate-600">Solidity</span>
+            <span class="px-2 py-1 rounded bg-slate-100 text-[10px] font-semibold text-slate-600">Django</span>
+          </div>
+        </div>
+
+        <div class="glass-panel rounded-3xl p-6 hover:shadow-md transition-shadow">
+          <div class="flex justify-between items-start mb-4">
+            <div class="p-2 rounded-lg bg-indigo-50 text-indigo-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Real Estate</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Digishares</h3>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4">Built end-to-end asset onboarding, investor KYC gating,
+            and regulated share registry.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 rounded bg-slate-100 text-[10px] font-semibold text-slate-600">Tokenization</span>
+            <span class="px-2 py-1 rounded bg-slate-100 text-[10px] font-semibold text-slate-600">Compliance</span>
+          </div>
+        </div>
+      </section>
+
+    </main>
   </div>
-<!--Contact-->
 
-<!-- Portfolio Modal -->
-  <div class="modal fade portfolio-modal" id="port2" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body col-md-11 col-lg-9 ml-auto mr-auto">
-        <h2 class="portfolio-modal__title">Sentiment Analyis & Natural Language Processing</h2>
-        <b>Goal :</b>
-        <li><u>Increase awareness for the OptimumBrokers Forums of
-          which words the market is most reacting to</u></li>
-        <li><u>Provide machine learning models for quantitative
-          finance seeking to forecast the financial future of investments</u></li>
-          <br>
-        <p class="portfolio-modal__description"><b>My Contribution :</b><br>
-          - Contributed to the team responsible for transforming
-            textual analysis to Predictive Analysis using NLTK<br>
-          - Developed Logical relationship between the traders,
-            their opinion and the outcome of two Specific Markets -> Crypto & Forex
-        </p>
-        <div class="portfolio-modal__link">
-          <a href="">####</a>
-        </div>
-        <div  class="portfolio-modal__stack">
-          <p class="portfolio-modal__stack-title">Using stack:</p>
-          <ul class="tags">
-            <li>NLTK</li>
-            <li>Python</li>
-            <li>D3.js</li>
-            <li>Numbpy</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Portfolio Modal -->
-
-<!-- Portfolio Modal -->
-  <div class="modal fade portfolio-modal" id="port1" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body col-md-11 col-lg-9 ml-auto mr-auto">
-        <h2 class="portfolio-modal__title">Document Abstraction & Automation Tool</h2>
-        <b>Goal :</b>
-        <li><u>Develop UI & Backend Prototype for Contract Abstraction Tool </u></li>
-        <li><u>Run Test Analysis & Named Entity recognition for Text Summarization</u></li>
-          <br>
-        <p class="portfolio-modal__description"><b>My Contribution :</b><br>
-          - Developed End to End UI (In Vue) & Backend (in Django)<br>
-          - Wrote and improvished Named Entity recognition model for testing 30+ Contracts
-        </p>
-        <div class="portfolio-modal__link">
-          <a href="">####</a>
-        </div>
-        <div  class="portfolio-modal__stack">
-          <p class="portfolio-modal__stack-title">Using stack:</p>
-          <ul class="tags">
-            <li>Vue</li>
-            <li>Python</li>
-            <li>Spacy, LexNLP, NLTK</li>
-            <li>Django</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Portfolio Modal -->
-
-
-  <script src="assets/js/jquery-2.2.4.min.js"></script>
-  <script src="assets/js/popper.min.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/js/menu.js"></script>
-  <script src="assets/js/jquery.waypoints.js"></script>
-  <script src="assets/js/progress-list.js"></script>
-  <script src="assets/js/section.js"></script>
-  <script src="assets/js/portfolio-filter.js"></script>
-  <script src="assets/js/slider-carousel.js"></script>
-  <script src="assets/js/mobile-menu.js"></script>
-  <script src="assets/js/contacts.js"></script>
-  <script src="assets/js/mbclicker.min.js"></script>
-  <script src="assets/js/site-btn.js"></script>
-  <script src="assets/js/style-switcher.js"></script>
 </body>
+
 </html>
