@@ -48,9 +48,9 @@
       }
     };
 
-    // Pre-render theme initialization to eliminate flash of unstyled theme
+    // Default to Dark Theme unless explicitly switched to light
     (function() {
-      const savedTheme = localStorage.getItem('theme');
+      const savedTheme = localStorage.getItem('theme_preference');
       if (savedTheme === 'light') {
         document.documentElement.classList.remove('dark');
       } else {
@@ -93,42 +93,42 @@
 <body class="bg-[#FAFAFA] dark:bg-[#090D14] text-zinc-800 dark:text-zinc-200 font-sans transition-colors duration-200 antialiased selection:bg-zinc-200 dark:selection:bg-zinc-800 selection:text-zinc-900 dark:selection:text-zinc-100 min-h-screen flex flex-col">
 
   <!-- Top Engineering Banner -->
-  <div class="no-print border-b border-zinc-200 dark:border-zinc-800/80 bg-white/70 dark:bg-[#0B1019]/70 backdrop-blur-md px-4 py-2">
-    <div class="max-w-5xl mx-auto flex items-center justify-between text-xs font-mono text-zinc-500 dark:text-zinc-400">
-      <div class="flex items-center gap-2">
-        <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span class="font-medium text-zinc-900 dark:text-zinc-200">Current Focus:</span>
-        <span>Tech Lead • Agentic Systems (LangGraph) & Scalable Django Backends</span>
+  <div class="no-print border-b border-zinc-200 dark:border-zinc-800/80 bg-white/70 dark:bg-[#0B1019]/70 backdrop-blur-md px-4 py-1.5 text-xs font-mono">
+    <div class="max-w-5xl mx-auto flex items-center justify-between gap-4">
+      <div class="flex items-center gap-2 truncate">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse flex-shrink-0"></span>
+        <span class="font-medium text-zinc-900 dark:text-zinc-200 flex-shrink-0">Focus:</span>
+        <span class="truncate text-zinc-600 dark:text-zinc-400">Agentic AI & Scalable Django Backends</span>
       </div>
-      <div class="hidden sm:flex items-center gap-4 text-zinc-400 dark:text-zinc-500">
-        <span>Patia, Bhubaneswar</span>
-        <span>•</span>
-        <span>10+ Yrs Exp</span>
+      <div class="flex items-center gap-2.5 text-zinc-500 dark:text-zinc-400 flex-shrink-0 text-[11px]">
+        <span class="hidden sm:inline">Patia, Bhubaneswar</span>
+        <span class="hidden sm:inline">•</span>
+        <span class="text-emerald-600 dark:text-emerald-400 font-semibold">10+ Yrs Exp</span>
       </div>
     </div>
   </div>
 
   <!-- Main Navigation Header -->
   <header class="no-print sticky top-0 z-40 border-b border-zinc-200 dark:border-zinc-800/80 bg-white/80 dark:bg-[#090D14]/80 backdrop-blur-lg">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
       
       <!-- Identity -->
-      <a href="#" class="flex items-center gap-3 group">
-        <div class="w-8 h-8 rounded-md bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-mono font-bold text-xs flex items-center justify-center transition-transform group-hover:scale-105">
+      <a href="#" class="flex items-center gap-2.5 flex-shrink-0 group">
+        <div class="w-8 h-8 rounded-md bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-mono font-bold text-xs flex items-center justify-center transition-transform group-hover:scale-105 flex-shrink-0">
           SK
         </div>
-        <div>
-          <div class="font-semibold text-sm text-zinc-900 dark:text-white tracking-tight leading-none group-hover:text-brand dark:group-hover:text-brand-dark transition-colors">
+        <div class="leading-none">
+          <div class="font-semibold text-sm text-zinc-900 dark:text-white tracking-tight group-hover:text-brand dark:group-hover:text-brand-dark transition-colors whitespace-nowrap">
             Sangram K. Sundaray
           </div>
-          <div class="text-[11px] font-mono text-zinc-500 dark:text-zinc-400 leading-tight mt-0.5">
+          <div class="text-[11px] font-mono text-zinc-500 dark:text-zinc-400 leading-tight mt-1 whitespace-nowrap hidden sm:block">
             Senior Software Developer
           </div>
         </div>
       </a>
 
-      <!-- Navigation Links -->
-      <nav class="hidden md:flex items-center gap-6 text-xs font-medium text-zinc-600 dark:text-zinc-400">
+      <!-- Navigation Links: Only on lg screens (>= 1024px) to prevent crowded navbars on split-screen -->
+      <nav class="hidden lg:flex items-center gap-6 text-xs font-medium text-zinc-600 dark:text-zinc-400 flex-shrink-0">
         <a href="#about" class="hover:text-zinc-900 dark:hover:text-white transition-colors">About</a>
         <a href="#experience" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Experience</a>
         <a href="#systems" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Architectures</a>
@@ -136,8 +136,8 @@
         <a href="#education" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Education</a>
       </nav>
 
-      <!-- Action Items & Theme Switcher -->
-      <div class="flex items-center gap-2.5">
+      <!-- Action Items & Controls -->
+      <div class="flex items-center gap-2 flex-shrink-0">
         
         <!-- Theme Switcher with Moon Icon -->
         <button 
@@ -145,7 +145,7 @@
           onclick="toggleTheme()" 
           title="Switch Dark / Light Theme" 
           aria-label="Toggle Theme"
-          class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:border-zinc-300 dark:hover:border-zinc-700 transition-all text-xs font-mono shadow-sm group cursor-pointer"
+          class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:border-zinc-300 dark:hover:border-zinc-700 transition-all text-xs font-mono shadow-sm group cursor-pointer flex-shrink-0"
         >
           <span id="themeIconContainer" class="flex items-center">
             <i data-lucide="moon" class="w-3.5 h-3.5 text-zinc-200"></i>
@@ -153,40 +153,62 @@
           <span id="themeLabel" class="text-[11px] font-medium hidden sm:inline">Dark</span>
         </button>
 
-        <!-- Print Resume Button -->
+        <!-- Print Resume Button (Only on desktop) -->
         <button 
           onclick="window.print()" 
           title="Print to PDF" 
-          class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white text-xs font-medium transition-all shadow-sm"
+          class="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white text-xs font-medium transition-all shadow-sm flex-shrink-0"
         >
           <i data-lucide="printer" class="w-3.5 h-3.5"></i>
           <span>Print</span>
         </button>
 
-        <!-- Download CV PDF -->
+        <!-- Download CV PDF (Single-line guaranteed) -->
         <a 
           href="assets/resume.pdf" 
           download="Sangram_Keshari_Sundaray_Resume.pdf" 
-          class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:hover:bg-zinc-200 text-white dark:text-zinc-900 text-xs font-semibold tracking-tight transition-all shadow-sm"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:hover:bg-zinc-200 text-white dark:text-zinc-900 text-xs font-semibold tracking-tight transition-all shadow-sm whitespace-nowrap flex-shrink-0"
         >
           <i data-lucide="download" class="w-3.5 h-3.5"></i>
           <span>Resume PDF</span>
         </a>
+
+        <!-- Mobile / Tablet Hamburger Toggle Button (Visible on < 1024px) -->
+        <button 
+          id="mobileMenuToggle" 
+          onclick="toggleMobileMenu()" 
+          aria-label="Toggle navigation menu"
+          class="lg:hidden p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white transition-all flex items-center justify-center flex-shrink-0"
+        >
+          <i data-lucide="menu" id="menuIcon" class="w-4 h-4"></i>
+        </button>
+
       </div>
+    </div>
+
+    <!-- Responsive Mobile / Split-window Dropdown -->
+    <div id="mobileDropdown" class="hidden lg:hidden border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0B1019] px-4 py-3 space-y-2 text-sm font-medium shadow-md">
+      <a href="#about" onclick="closeMobileMenu()" class="block py-1.5 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white font-mono text-xs">About</a>
+      <a href="#experience" onclick="closeMobileMenu()" class="block py-1.5 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white font-mono text-xs">Experience</a>
+      <a href="#systems" onclick="closeMobileMenu()" class="block py-1.5 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white font-mono text-xs">Architectures & SaaS</a>
+      <a href="#skills" onclick="closeMobileMenu()" class="block py-1.5 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white font-mono text-xs">Technical Stack</a>
+      <a href="#education" onclick="closeMobileMenu()" class="block py-1.5 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white font-mono text-xs">Education</a>
     </div>
   </header>
 
   <!-- Main Container -->
-  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-16 flex-grow">
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-16 flex-grow">
 
-    <!-- Profile & Hero Section (Editorial, Non-slop Senior Developer Format) -->
+    <!-- Profile & Hero Section (Editorial, Fully Responsive Layout) -->
     <section id="about" class="space-y-8">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+      <div class="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-10 items-start">
         
-        <!-- Left: Photo with authentic frame -->
-        <div class="md:col-span-4 flex flex-col items-center sm:items-start">
-          <div class="relative group">
-            <div class="w-40 sm:w-48 aspect-square rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-sm bg-zinc-100 dark:bg-zinc-900">
+        <!-- Left Column: Photo & Contacts (Responsive Stack) -->
+        <div class="w-full lg:w-48 flex-shrink-0 flex flex-col sm:flex-row lg:flex-col gap-4 sm:gap-6 items-start">
+          
+          <!-- Photo -->
+          <div class="relative group flex-shrink-0 mx-auto sm:mx-0">
+            <div class="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-sm bg-zinc-100 dark:bg-zinc-900">
               <img 
                 src="assets/profile_pic.jpg" 
                 alt="Sangram Keshari Sundaray" 
@@ -195,58 +217,62 @@
               >
             </div>
             <!-- Active Status Dot -->
-            <div class="absolute -bottom-2 -right-2 bg-white dark:bg-zinc-900 px-2.5 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 text-[11px] font-mono text-zinc-600 dark:text-zinc-300 shadow-sm flex items-center gap-1.5">
+            <div class="absolute -bottom-2 -right-2 bg-white dark:bg-zinc-900 px-2.5 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 text-[11px] font-mono text-zinc-600 dark:text-zinc-300 shadow-sm flex items-center gap-1.5 whitespace-nowrap">
               <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
               <span>10+ Yrs</span>
             </div>
           </div>
 
           <!-- Contact Quick-list -->
-          <div class="w-full mt-6 space-y-2 text-xs font-mono">
+          <div class="w-full flex-grow space-y-2 text-xs font-mono">
             <div class="flex items-center justify-between p-2 rounded-lg bg-zinc-100/70 dark:bg-zinc-900/70 border border-zinc-200/80 dark:border-zinc-800/80 text-zinc-600 dark:text-zinc-400">
               <span class="flex items-center gap-2 truncate">
-                <i data-lucide="mail" class="w-3.5 h-3.5 text-zinc-400"></i>
+                <i data-lucide="mail" class="w-3.5 h-3.5 text-zinc-400 flex-shrink-0"></i>
                 <a href="mailto:sangramz@hotmail.com" class="hover:text-zinc-900 dark:hover:text-white transition-colors truncate">sangramz@hotmail.com</a>
               </span>
-              <button onclick="copyText('sangramz@hotmail.com', this)" class="text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 p-0.5 ml-1">
+              <button onclick="copyText('sangramz@hotmail.com', this)" class="text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 p-0.5 ml-1 flex-shrink-0">
                 <i data-lucide="copy" class="w-3.5 h-3.5"></i>
               </button>
             </div>
 
             <div class="flex items-center justify-between p-2 rounded-lg bg-zinc-100/70 dark:bg-zinc-900/70 border border-zinc-200/80 dark:border-zinc-800/80 text-zinc-600 dark:text-zinc-400">
               <span class="flex items-center gap-2">
-                <i data-lucide="phone" class="w-3.5 h-3.5 text-zinc-400"></i>
-                <a href="tel:+919937826218" class="hover:text-zinc-900 dark:hover:text-white transition-colors">+91 9937-82-6218</a>
+                <i data-lucide="phone" class="w-3.5 h-3.5 text-zinc-400 flex-shrink-0"></i>
+                <a href="tel:+919937826218" class="hover:text-zinc-900 dark:hover:text-white transition-colors whitespace-nowrap">+91 9937-82-6218</a>
               </span>
-              <button onclick="copyText('+919937826218', this)" class="text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 p-0.5 ml-1">
+              <button onclick="copyText('+919937826218', this)" class="text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 p-0.5 ml-1 flex-shrink-0">
                 <i data-lucide="copy" class="w-3.5 h-3.5"></i>
               </button>
             </div>
 
             <div class="flex items-center justify-between p-2 rounded-lg bg-zinc-100/70 dark:bg-zinc-900/70 border border-zinc-200/80 dark:border-zinc-800/80 text-zinc-600 dark:text-zinc-400">
               <span class="flex items-center gap-2">
-                <i data-lucide="globe" class="w-3.5 h-3.5 text-zinc-400"></i>
+                <i data-lucide="globe" class="w-3.5 h-3.5 text-zinc-400 flex-shrink-0"></i>
                 <a href="https://sangramz.github.io" target="_blank" class="hover:text-zinc-900 dark:hover:text-white transition-colors">sangramz.github.io</a>
               </span>
-              <a href="https://sangramz.github.io" target="_blank" class="text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 p-0.5 ml-1">
+              <a href="https://sangramz.github.io" target="_blank" class="text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 p-0.5 ml-1 flex-shrink-0">
                 <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
               </a>
             </div>
           </div>
         </div>
 
-        <!-- Right: Professional Statement & Concrete Capabilities -->
-        <div class="md:col-span-8 space-y-6">
-          <div class="space-y-2">
-            <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
+        <!-- Right Column: Professional Statement & Concrete Capabilities -->
+        <div class="flex-grow space-y-6 min-w-0">
+          <div class="space-y-1.5">
+            <h1 class="text-2xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white leading-tight">
               Sangram Keshari Sundaray
             </h1>
-            <p class="text-base sm:text-lg font-mono text-zinc-500 dark:text-zinc-400">
-              Senior Software Developer <span class="text-zinc-400 dark:text-zinc-600">/</span> Tech Lead
+            <p class="text-xs sm:text-sm font-mono text-zinc-500 dark:text-zinc-400 flex flex-wrap items-center gap-1.5">
+              <span>Senior Software Developer</span>
+              <span class="text-zinc-400 dark:text-zinc-600">/</span>
+              <span>Tech Lead</span>
+              <span class="text-zinc-300 dark:text-zinc-700 hidden sm:inline">•</span>
+              <span class="text-emerald-700 dark:text-emerald-400 font-medium">Web Apps, Generative & Agentic AI</span>
             </p>
           </div>
 
-          <div class="prose prose-zinc dark:prose-invert text-zinc-600 dark:text-zinc-300 text-sm sm:text-base leading-relaxed space-y-4">
+          <div class="prose prose-zinc dark:prose-invert text-zinc-600 dark:text-zinc-300 text-sm leading-relaxed space-y-3">
             <p>
               I am a software engineer with <strong>over a decade of production experience</strong> building robust web platforms, high-concurrency backend services, and enterprise automation infrastructure. Over the past several years, my core technical work has centered on <strong>Python/Django systems</strong>, <strong>deterministic Agentic AI workflows using LangGraph</strong>, and full cloud lifecycle deployment on <strong>GCP and AWS</strong>.
             </p>
@@ -258,19 +284,19 @@
           <!-- Quick Metrics Grid -->
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
             <div class="p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50">
-              <div class="text-xl font-bold font-mono text-zinc-900 dark:text-white">10+ Yrs</div>
+              <div class="text-lg sm:text-xl font-bold font-mono text-zinc-900 dark:text-white">10+ Yrs</div>
               <div class="text-[11px] font-mono text-zinc-500 dark:text-zinc-400 mt-0.5">Software Engineering</div>
             </div>
             <div class="p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50">
-              <div class="text-xl font-bold font-mono text-zinc-900 dark:text-white">5+ Systems</div>
+              <div class="text-lg sm:text-xl font-bold font-mono text-zinc-900 dark:text-white">5+ Systems</div>
               <div class="text-[11px] font-mono text-zinc-500 dark:text-zinc-400 mt-0.5">Production LangGraph</div>
             </div>
             <div class="p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50">
-              <div class="text-xl font-bold font-mono text-zinc-900 dark:text-white">15+ Apps</div>
+              <div class="text-lg sm:text-xl font-bold font-mono text-zinc-900 dark:text-white">15+ Apps</div>
               <div class="text-[11px] font-mono text-zinc-500 dark:text-zinc-400 mt-0.5">Full-Cycle Delivered</div>
             </div>
             <div class="p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50">
-              <div class="text-xl font-bold font-mono text-zinc-900 dark:text-white">PwC / F500</div>
+              <div class="text-lg sm:text-xl font-bold font-mono text-zinc-900 dark:text-white">PwC / F500</div>
               <div class="text-[11px] font-mono text-zinc-500 dark:text-zinc-400 mt-0.5">NLP Contract Eng.</div>
             </div>
           </div>
@@ -819,13 +845,16 @@
       const isDark = document.documentElement.classList.contains('dark');
       const container = document.getElementById('themeIconContainer');
       const label = document.getElementById('themeLabel');
+      const btn = document.getElementById('themeToggleBtn');
       if (container && label) {
         if (isDark) {
           container.innerHTML = '<i data-lucide="moon" class="w-3.5 h-3.5 text-zinc-200"></i>';
           label.textContent = 'Dark';
+          if (btn) btn.setAttribute('title', 'Switch to Light Theme');
         } else {
           container.innerHTML = '<i data-lucide="sun" class="w-3.5 h-3.5 text-amber-500"></i>';
           label.textContent = 'Light';
+          if (btn) btn.setAttribute('title', 'Switch to Dark Theme');
         }
         lucide.createIcons();
       }
@@ -835,12 +864,27 @@
       const isDark = document.documentElement.classList.contains('dark');
       if (isDark) {
         document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
+        localStorage.setItem('theme_preference', 'light');
       } else {
         document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
+        localStorage.setItem('theme_preference', 'dark');
       }
       syncThemeUI();
+    }
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileDropdown');
+      if (menu) {
+        menu.classList.toggle('hidden');
+      }
+    }
+
+    function closeMobileMenu() {
+      const menu = document.getElementById('mobileDropdown');
+      if (menu) {
+        menu.classList.add('hidden');
+      }
     }
 
     // Initialize icons and sync UI
