@@ -199,111 +199,119 @@
   <!-- Main Container -->
   <main class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-16 flex-grow">
 
-    <!-- Profile & Hero Section (Editorial, Fully Responsive Layout) -->
+    <!-- Profile & Hero Section (Executive Hierarchy: Name -> Details -> Contacts -> Summary) -->
     <section id="about" class="space-y-8">
-      <div class="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-10 items-start">
+      
+      <!-- Top Identity Header: Photo + Name + Titles + Contacts in one cohesive unit -->
+      <div class="flex flex-col-reverse sm:flex-row sm:items-start justify-between gap-6 pb-6 border-b border-zinc-200 dark:border-zinc-800/80">
         
-        <!-- Left Column: Photo & Contacts (Responsive Stack) -->
-        <div class="w-full lg:w-48 flex-shrink-0 flex flex-col sm:flex-row lg:flex-col gap-4 sm:gap-6 items-start">
+        <!-- Left Column: Name, Titles, and Contacts -->
+        <div class="space-y-4 flex-grow min-w-0">
           
-          <!-- Photo -->
-          <div class="relative group flex-shrink-0 mx-auto sm:mx-0">
-            <div class="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-sm bg-zinc-100 dark:bg-zinc-900">
-              <img 
-                src="assets/profile_pic.jpg" 
-                alt="Sangram Keshari Sundaray" 
-                class="w-full h-full object-cover object-center filter grayscale-[15%] group-hover:grayscale-0 transition-all duration-300"
-                loading="eager"
-              >
+          <!-- Status Pill -->
+          <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full border border-emerald-500/30 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 font-mono text-xs">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="font-medium">Open to Tech Lead & Senior Roles</span>
+          </div>
+
+          <!-- Name & Titles -->
+          <div class="space-y-1">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-white leading-tight">
+              Sangram Keshari Sundaray
+            </h1>
+            <p class="text-base sm:text-lg font-mono text-zinc-600 dark:text-zinc-300">
+              Senior Software Developer <span class="text-zinc-400 dark:text-zinc-600">/</span> Tech Lead
+            </p>
+            <p class="text-xs sm:text-sm font-mono text-emerald-600 dark:text-emerald-400 font-medium pt-0.5">
+              [ Web Apps • Generative & Agentic AI • Scalable Python-Django Backends ]
+            </p>
+          </div>
+
+          <!-- Contact Details (Directly After Name & Details) -->
+          <div class="pt-2 flex flex-wrap items-center gap-x-4 gap-y-2.5 text-xs font-mono text-zinc-600 dark:text-zinc-400">
+            
+            <!-- Email with Copy -->
+            <div class="inline-flex items-center gap-1.5 bg-zinc-100/80 dark:bg-zinc-900/80 px-2.5 py-1 rounded-md border border-zinc-200/80 dark:border-zinc-800/80 hover:text-zinc-900 dark:hover:text-white transition-colors">
+              <i data-lucide="mail" class="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500 flex-shrink-0"></i>
+              <a href="mailto:sangramz@hotmail.com">sangramz@hotmail.com</a>
+              <button onclick="copyText('sangramz@hotmail.com', this)" title="Copy email" class="text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 ml-1">
+                <i data-lucide="copy" class="w-3 h-3"></i>
+              </button>
             </div>
-            <!-- Active Status Dot -->
-            <div class="absolute -bottom-2 -right-2 bg-white dark:bg-zinc-900 px-2.5 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 text-[11px] font-mono text-zinc-600 dark:text-zinc-300 shadow-sm flex items-center gap-1.5 whitespace-nowrap">
-              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+
+            <!-- Phone with Copy -->
+            <div class="inline-flex items-center gap-1.5 bg-zinc-100/80 dark:bg-zinc-900/80 px-2.5 py-1 rounded-md border border-zinc-200/80 dark:border-zinc-800/80 hover:text-zinc-900 dark:hover:text-white transition-colors">
+              <i data-lucide="phone" class="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500 flex-shrink-0"></i>
+              <a href="tel:+919937826218">+91 9937-82-6218</a>
+              <button onclick="copyText('+919937826218', this)" title="Copy phone" class="text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 ml-1">
+                <i data-lucide="copy" class="w-3 h-3"></i>
+              </button>
+            </div>
+
+            <!-- Website -->
+            <div class="inline-flex items-center gap-1.5 bg-zinc-100/80 dark:bg-zinc-900/80 px-2.5 py-1 rounded-md border border-zinc-200/80 dark:border-zinc-800/80 hover:text-zinc-900 dark:hover:text-white transition-colors">
+              <i data-lucide="globe" class="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500 flex-shrink-0"></i>
+              <a href="https://sangramz.github.io" target="_blank">sangramz.github.io</a>
+            </div>
+
+            <!-- Location -->
+            <div class="inline-flex items-center gap-1.5 bg-zinc-100/80 dark:bg-zinc-900/80 px-2.5 py-1 rounded-md border border-zinc-200/80 dark:border-zinc-800/80 text-zinc-500 dark:text-zinc-400">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500 flex-shrink-0"></i>
+              <span>Patia, Bhubaneswar, 751025</span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Right Column: Profile Picture (Refined, Proportional) -->
+        <div class="flex-shrink-0 self-start sm:self-center">
+          <div class="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-sm bg-zinc-100 dark:bg-zinc-900 group">
+            <img 
+              src="assets/profile_pic.jpg" 
+              alt="Sangram Keshari Sundaray" 
+              class="w-full h-full object-cover object-center filter contrast-[1.02] grayscale-[10%] group-hover:grayscale-0 transition-all duration-300"
+              loading="eager"
+            >
+            <div class="absolute bottom-1.5 right-1.5 bg-zinc-900/90 dark:bg-black/90 text-white px-2 py-0.5 rounded-full text-[10px] font-mono flex items-center gap-1 border border-white/10">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
               <span>10+ Yrs</span>
             </div>
           </div>
-
-          <!-- Contact Quick-list -->
-          <div class="w-full flex-grow space-y-2 text-xs font-mono">
-            <div class="flex items-center justify-between p-2 rounded-lg bg-zinc-100/70 dark:bg-zinc-900/70 border border-zinc-200/80 dark:border-zinc-800/80 text-zinc-600 dark:text-zinc-400">
-              <span class="flex items-center gap-2 truncate">
-                <i data-lucide="mail" class="w-3.5 h-3.5 text-zinc-400 flex-shrink-0"></i>
-                <a href="mailto:sangramz@hotmail.com" class="hover:text-zinc-900 dark:hover:text-white transition-colors truncate">sangramz@hotmail.com</a>
-              </span>
-              <button onclick="copyText('sangramz@hotmail.com', this)" class="text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 p-0.5 ml-1 flex-shrink-0">
-                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
-
-            <div class="flex items-center justify-between p-2 rounded-lg bg-zinc-100/70 dark:bg-zinc-900/70 border border-zinc-200/80 dark:border-zinc-800/80 text-zinc-600 dark:text-zinc-400">
-              <span class="flex items-center gap-2">
-                <i data-lucide="phone" class="w-3.5 h-3.5 text-zinc-400 flex-shrink-0"></i>
-                <a href="tel:+919937826218" class="hover:text-zinc-900 dark:hover:text-white transition-colors whitespace-nowrap">+91 9937-82-6218</a>
-              </span>
-              <button onclick="copyText('+919937826218', this)" class="text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 p-0.5 ml-1 flex-shrink-0">
-                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
-
-            <div class="flex items-center justify-between p-2 rounded-lg bg-zinc-100/70 dark:bg-zinc-900/70 border border-zinc-200/80 dark:border-zinc-800/80 text-zinc-600 dark:text-zinc-400">
-              <span class="flex items-center gap-2">
-                <i data-lucide="globe" class="w-3.5 h-3.5 text-zinc-400 flex-shrink-0"></i>
-                <a href="https://sangramz.github.io" target="_blank" class="hover:text-zinc-900 dark:hover:text-white transition-colors">sangramz.github.io</a>
-              </span>
-              <a href="https://sangramz.github.io" target="_blank" class="text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 p-0.5 ml-1 flex-shrink-0">
-                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Column: Professional Statement & Concrete Capabilities -->
-        <div class="flex-grow space-y-6 min-w-0">
-          <div class="space-y-1.5">
-            <h1 class="text-2xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white leading-tight">
-              Sangram Keshari Sundaray
-            </h1>
-            <p class="text-xs sm:text-sm font-mono text-zinc-500 dark:text-zinc-400 flex flex-wrap items-center gap-1.5">
-              <span>Senior Software Developer</span>
-              <span class="text-zinc-400 dark:text-zinc-600">/</span>
-              <span>Tech Lead</span>
-              <span class="text-zinc-300 dark:text-zinc-700 hidden sm:inline">•</span>
-              <span class="text-emerald-700 dark:text-emerald-400 font-medium">Web Apps, Generative & Agentic AI</span>
-            </p>
-          </div>
-
-          <div class="prose prose-zinc dark:prose-invert text-zinc-600 dark:text-zinc-300 text-sm leading-relaxed space-y-3">
-            <p>
-              I am a software engineer with <strong>over a decade of production experience</strong> building robust web platforms, high-concurrency backend services, and enterprise automation infrastructure. Over the past several years, my core technical work has centered on <strong>Python/Django systems</strong>, <strong>deterministic Agentic AI workflows using LangGraph</strong>, and full cloud lifecycle deployment on <strong>GCP and AWS</strong>.
-            </p>
-            <p>
-              Rather than building fragile wrapper scripts, I specialize in engineered AI systems: state-machine orchestration, deterministic triage and verification fallbacks, retrieval-augmented generation (RAG) over sensitive proprietary corpora, and multi-tenant domain models.
-            </p>
-          </div>
-
-          <!-- Quick Metrics Grid -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-            <div class="p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50">
-              <div class="text-lg sm:text-xl font-bold font-mono text-zinc-900 dark:text-white">10+ Yrs</div>
-              <div class="text-[11px] font-mono text-zinc-500 dark:text-zinc-400 mt-0.5">Software Engineering</div>
-            </div>
-            <div class="p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50">
-              <div class="text-lg sm:text-xl font-bold font-mono text-zinc-900 dark:text-white">5+ Systems</div>
-              <div class="text-[11px] font-mono text-zinc-500 dark:text-zinc-400 mt-0.5">Production LangGraph</div>
-            </div>
-            <div class="p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50">
-              <div class="text-lg sm:text-xl font-bold font-mono text-zinc-900 dark:text-white">15+ Apps</div>
-              <div class="text-[11px] font-mono text-zinc-500 dark:text-zinc-400 mt-0.5">Full-Cycle Delivered</div>
-            </div>
-            <div class="p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50">
-              <div class="text-lg sm:text-xl font-bold font-mono text-zinc-900 dark:text-white">PwC / F500</div>
-              <div class="text-[11px] font-mono text-zinc-500 dark:text-zinc-400 mt-0.5">NLP Contract Eng.</div>
-            </div>
-          </div>
-
         </div>
 
       </div>
+
+      <!-- Professional Summary -->
+      <div class="space-y-3">
+        <div class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+          Professional Summary
+        </div>
+        <p class="text-zinc-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed">
+          10+ years of experience building scalable web applications, AI/GenAI-powered SaaS products, and enterprise automation tools. Deep expertise in Python-Django backend systems, Agentic AI development using LangGraph, and LLM integration. Hands-on across the entire product lifecycle — from system design and backend engineering to cloud deployment on GCP. Currently building multiple AI-first SaaS products.
+        </p>
+      </div>
+
+      <!-- Key Competencies & Impact Metrics -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
+        <div class="p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50">
+          <div class="text-lg sm:text-xl font-bold font-mono text-zinc-900 dark:text-white">10+ Yrs</div>
+          <div class="text-xs text-zinc-500 dark:text-zinc-400 font-mono mt-0.5">Software Engineering</div>
+        </div>
+        <div class="p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50">
+          <div class="text-lg sm:text-xl font-bold font-mono text-zinc-900 dark:text-white">LangGraph</div>
+          <div class="text-xs text-zinc-500 dark:text-zinc-400 font-mono mt-0.5">Multi-Agent Systems</div>
+        </div>
+        <div class="p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50">
+          <div class="text-lg sm:text-xl font-bold font-mono text-zinc-900 dark:text-white">Django REST</div>
+          <div class="text-xs text-zinc-500 dark:text-zinc-400 font-mono mt-0.5">Enterprise Backends</div>
+        </div>
+        <div class="p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50">
+          <div class="text-lg sm:text-xl font-bold font-mono text-zinc-900 dark:text-white">GCP & AWS</div>
+          <div class="text-xs text-zinc-500 dark:text-zinc-400 font-mono mt-0.5">Cloud Deployment</div>
+        </div>
+      </div>
+
     </section>
 
     <!-- Work Experience Section -->
