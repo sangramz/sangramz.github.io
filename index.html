@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +16,7 @@
   <meta property="og:image" content="assets/profile_pic.jpg">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230f172a'/><text y='.72em' x='.2em' font-size='60' fill='%2310b981' font-family='monospace' font-weight='bold'>&gt;_</text></svg>">
 
   <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,28 +39,26 @@
             mono: ['JetBrains Mono', 'monospace'],
           },
           colors: {
-            brand: {
-              50: '#eff6ff',
-              100: '#dbeafe',
-              200: '#bfdbfe',
-              300: '#93c5fd',
-              400: '#60a5fa',
-              500: '#3b82f6',
-              600: '#2563eb',
-              700: '#1d4ed8',
-              800: '#1e40af',
-              900: '#1e3a8a',
+            dark: {
+              base: '#0B0F17',      /* Deep obsidian slate */
+              surface: '#111827',   /* Card background */
+              elevated: '#162032',  /* Hover & floating elements */
+              border: '#1F293D',    /* Subtle hair-line borders */
+              borderSubtle: 'rgba(255, 255, 255, 0.07)',
             },
-            slate: {
-              850: '#151f30',
-              950: '#090d16',
+            accent: {
+              emerald: '#10B981',
+              mint: '#34D399',
+              cyan: '#06B6D4',
+              blue: '#3B82F6',
+              violet: '#8B5CF6',
             }
           },
           boxShadow: {
-            'subtle': '0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05)',
-            'card': '0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -2px rgba(15, 23, 42, 0.03)',
-            'hover': '0 12px 30px -4px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.04)',
-            'glow': '0 0 25px -5px rgba(37, 99, 235, 0.15)',
+            'glow-emerald': '0 0 25px -4px rgba(16, 185, 129, 0.25)',
+            'glow-cyan': '0 0 25px -4px rgba(6, 182, 212, 0.25)',
+            'dark-card': '0 4px 20px -2px rgba(0, 0, 0, 0.5), 0 2px 6px -2px rgba(0, 0, 0, 0.3)',
+            'dark-hover': '0 12px 30px -4px rgba(0, 0, 0, 0.7), 0 4px 12px -2px rgba(0, 0, 0, 0.5)',
           }
         }
       }
@@ -68,250 +66,292 @@
   </script>
 
   <style>
-    /* Technical Grid Background Pattern */
-    .bg-grid-pattern {
-      background-size: 32px 32px;
+    /* Technical Grid & Ambient Lighting */
+    .dark-grid-bg {
+      background-size: 36px 36px;
       background-image: 
-        linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     }
     
-    .bg-dot-pattern {
-      background-image: radial-gradient(rgba(203, 213, 225, 0.8) 1px, transparent 1px);
+    .dark-dot-bg {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
       background-size: 24px 24px;
     }
 
-    /* Print styling optimization */
+    /* Subtle Glassmorphism */
+    .glass-panel {
+      background: rgba(17, 24, 39, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .glass-card {
+      background: rgba(17, 24, 39, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    /* Print optimization: converts back to pristine white for actual printing */
     @media print {
       body {
         background: #ffffff !important;
-        color: #000000 !important;
-        font-size: 11pt !important;
+        color: #0f172a !important;
       }
       .no-print {
         display: none !important;
       }
-      .page-break {
-        page-break-before: always;
-      }
-      .card-print {
-        box-shadow: none !important;
+      .dark-card, .glass-card, .bg-dark-surface, .bg-dark-base {
+        background: #ffffff !important;
+        color: #0f172a !important;
         border: 1px solid #e2e8f0 !important;
+        box-shadow: none !important;
+      }
+      .text-slate-100, .text-slate-200, .text-slate-300, .text-white {
+        color: #0f172a !important;
+      }
+      .text-slate-400, .text-slate-500 {
+        color: #475569 !important;
       }
     }
 
-    /* Custom Scrollbar */
+    /* Custom Sleek Dark Scrollbar */
     ::-webkit-scrollbar {
       width: 8px;
     }
     ::-webkit-scrollbar-track {
-      background: #f8fafc;
+      background: #0B0F17;
     }
     ::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
+      background: #1F293D;
       border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #94a3b8;
+      background: #334155;
     }
   </style>
 </head>
-<body class="bg-[#FAFAFA] text-slate-800 font-sans antialiased selection:bg-brand-100 selection:text-brand-900 min-h-screen flex flex-col relative">
+<body class="bg-[#0B0F17] text-slate-200 font-sans antialiased selection:bg-emerald-500/20 selection:text-emerald-300 min-h-screen flex flex-col relative overflow-x-hidden">
 
-  <!-- Top Announcement / Status Bar -->
-  <div class="no-print bg-white border-b border-slate-200/80 px-4 py-2 text-xs text-slate-600 transition-all">
+  <!-- Ambient Light Orbs in Background -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden -z-10">
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px]"></div>
+    <div class="absolute top-1/4 -right-32 w-[30rem] h-[30rem] bg-cyan-500/10 rounded-full blur-[140px]"></div>
+    <div class="absolute bottom-1/3 left-1/4 w-80 h-80 bg-blue-500/5 rounded-full blur-[130px]"></div>
+  </div>
+
+  <!-- Top System Bar -->
+  <div class="no-print bg-[#080C13] border-b border-white/[0.06] px-4 py-2 text-xs text-slate-400 transition-colors">
     <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center gap-2 font-mono">
         <span class="relative flex h-2 w-2">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
           <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
         </span>
-        <span class="text-slate-700 font-medium">Status:</span>
-        <span class="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-medium">Open to Tech Lead & Senior Roles</span>
+        <span class="text-slate-400 font-medium">Availability:</span>
+        <span class="text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/60 font-medium text-[11px]">
+          Open to Tech Lead & Senior Roles
+        </span>
       </div>
       <div class="flex items-center gap-4 text-slate-500 font-mono text-[11px]">
         <span>📍 Patia, Bhubaneswar, India</span>
-        <span class="hidden sm:inline">•</span>
-        <span class="hidden sm:inline">⚡ 10+ Yrs Production Experience</span>
+        <span class="hidden sm:inline text-slate-700">•</span>
+        <span class="hidden sm:inline text-slate-400">⚡ 10+ Yrs In Production</span>
+        <span class="hidden sm:inline text-slate-700">•</span>
+        <span class="text-emerald-400 font-semibold">Python • LangGraph • GCP</span>
       </div>
     </div>
   </div>
 
   <!-- Sticky Navbar -->
-  <header class="no-print sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 transition-all">
+  <header class="no-print sticky top-0 z-50 glass-panel border-b border-white/[0.08] transition-all">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <!-- Logo / Name -->
+      
+      <!-- Brand / Logo -->
       <a href="#" class="group flex items-center gap-3">
-        <div class="w-9 h-9 rounded-lg bg-slate-900 text-white font-mono font-bold flex items-center justify-center text-sm shadow-sm group-hover:bg-brand-600 transition-colors">
+        <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 text-emerald-400 font-mono font-bold flex items-center justify-center text-sm shadow-inner group-hover:border-emerald-500/50 group-hover:shadow-glow-emerald transition-all">
           SK
         </div>
         <div>
-          <span class="font-bold text-slate-900 tracking-tight text-base group-hover:text-brand-600 transition-colors block leading-tight">
+          <span class="font-bold text-slate-100 tracking-tight text-base group-hover:text-emerald-400 transition-colors block leading-tight">
             Sangram K. Sundaray
           </span>
-          <span class="font-mono text-[11px] text-slate-500 leading-tight block">
-            Senior Software Developer
+          <span class="font-mono text-[11px] text-slate-400 leading-tight block">
+            Senior Software Developer & AI Architect
           </span>
         </div>
       </a>
 
-      <!-- Desktop Nav Links -->
-      <nav class="hidden md:flex items-center gap-6 font-medium text-xs tracking-wider uppercase text-slate-600">
-        <a href="#summary" class="hover:text-brand-600 transition-colors py-1">About</a>
-        <a href="#skills" class="hover:text-brand-600 transition-colors py-1">Skills</a>
-        <a href="#experience" class="hover:text-brand-600 transition-colors py-1">Experience</a>
-        <a href="#projects" class="hover:text-brand-600 transition-colors py-1">Projects</a>
-        <a href="#education" class="hover:text-brand-600 transition-colors py-1">Education</a>
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-6 font-medium text-xs tracking-wider uppercase text-slate-400">
+        <a href="#summary" class="hover:text-emerald-400 transition-colors py-1">About</a>
+        <a href="#skills" class="hover:text-emerald-400 transition-colors py-1">Skills</a>
+        <a href="#experience" class="hover:text-emerald-400 transition-colors py-1">Experience</a>
+        <a href="#projects" class="hover:text-emerald-400 transition-colors py-1">Projects</a>
+        <a href="#education" class="hover:text-emerald-400 transition-colors py-1">Education</a>
       </nav>
 
-      <!-- Header CTAs -->
+      <!-- Header Action Buttons -->
       <div class="flex items-center gap-2.5">
         <!-- Print / PDF Button -->
-        <button onclick="window.print()" title="Print or Save as PDF" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 text-xs font-medium transition-all shadow-sm">
-          <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+        <button onclick="window.print()" title="Print or Save as PDF" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/10 bg-slate-900/80 text-slate-300 hover:text-white hover:bg-slate-800 text-xs font-medium transition-all shadow-sm">
+          <i data-lucide="printer" class="w-3.5 h-3.5 text-slate-400"></i>
           <span>Print</span>
         </button>
 
         <!-- Download Resume Button -->
-        <a href="assets/resume.pdf" download="Sangram_Keshari_Sundaray_Resume.pdf" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-slate-900 text-white hover:bg-brand-600 text-xs font-semibold tracking-wide transition-all shadow-sm hover:shadow">
+        <a href="assets/resume.pdf" download="Sangram_Keshari_Sundaray_Resume.pdf" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold tracking-wide transition-all shadow-glow-emerald">
           <i data-lucide="file-down" class="w-3.5 h-3.5"></i>
           <span>Download CV</span>
         </a>
 
         <!-- Mobile menu toggle button -->
-        <button id="mobileMenuBtn" aria-label="Toggle Menu" class="md:hidden p-2 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50">
+        <button id="mobileMenuBtn" aria-label="Toggle Menu" class="md:hidden p-2 rounded-lg border border-white/10 bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800">
           <i data-lucide="menu" class="w-4 h-4"></i>
         </button>
       </div>
     </div>
 
     <!-- Mobile Dropdown Menu -->
-    <div id="mobileMenu" class="hidden md:hidden border-b border-slate-200 bg-white px-4 pt-2 pb-4 space-y-2">
-      <a href="#summary" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600">About</a>
-      <a href="#skills" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600">Skills</a>
-      <a href="#experience" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600">Experience</a>
-      <a href="#projects" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600">Projects</a>
-      <a href="#education" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600">Education</a>
-      <div class="pt-2 border-t border-slate-100 flex gap-2">
-        <button onclick="window.print()" class="flex-1 inline-flex justify-center items-center gap-1.5 py-2 rounded-md border border-slate-200 text-slate-700 text-xs font-medium">
+    <div id="mobileMenu" class="hidden md:hidden border-b border-white/10 bg-[#0E1522] px-4 pt-2 pb-4 space-y-2">
+      <a href="#summary" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-emerald-400">About</a>
+      <a href="#skills" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-emerald-400">Skills</a>
+      <a href="#experience" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-emerald-400">Experience</a>
+      <a href="#projects" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-emerald-400">Projects</a>
+      <a href="#education" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-emerald-400">Education</a>
+      <div class="pt-2 border-t border-white/10 flex gap-2">
+        <button onclick="window.print()" class="flex-1 inline-flex justify-center items-center gap-1.5 py-2 rounded-md border border-white/10 bg-slate-800 text-slate-300 text-xs font-medium">
           <i data-lucide="printer" class="w-3.5 h-3.5"></i> Print
         </button>
-        <a href="mailto:sangramz@hotmail.com" class="flex-1 inline-flex justify-center items-center gap-1.5 py-2 rounded-md bg-brand-600 text-white text-xs font-medium">
-          <i data-lucide="mail" class="w-3.5 h-3.5"></i> Email
+        <a href="mailto:sangramz@hotmail.com" class="flex-1 inline-flex justify-center items-center gap-1.5 py-2 rounded-md bg-emerald-500 text-slate-950 font-bold text-xs">
+          <i data-lucide="mail" class="w-3.5 h-3.5"></i> Email Me
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section (White-Themed, Crisp Tech Lead Feel) -->
-  <section class="relative bg-white border-b border-slate-200 overflow-hidden">
-    <!-- Subtle technical grid background -->
-    <div class="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 to-white pointer-events-none"></div>
+  <!-- Hero Section -->
+  <section class="relative border-b border-white/[0.08] overflow-hidden pt-12 pb-16 sm:py-20 lg:py-24">
+    <!-- Dark Grid Pattern -->
+    <div class="absolute inset-0 dark-grid-bg opacity-70 pointer-events-none"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#0B0F17]/50 to-[#0B0F17] pointer-events-none"></div>
 
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 relative">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
-        <!-- Left Column: Bio & Core Pitch -->
+        <!-- Left Column: Executive Intro -->
         <div class="lg:col-span-8 space-y-6">
-          <!-- Terminal / System Tag -->
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200 text-slate-600 font-mono text-xs">
-            <span class="w-2 h-2 rounded-full bg-brand-500"></span>
-            <span>lead_developer@architect ~ 10+ yrs exp</span>
+          
+          <!-- Terminal / Tag Indicator -->
+          <div class="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-slate-900/90 border border-white/10 text-slate-300 font-mono text-xs shadow-inner">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-slate-400">sangram@cloud-infra:~$</span>
+            <span class="text-emerald-400 font-medium">tech_lead --agentic-ai</span>
           </div>
 
           <!-- Name & Primary Title -->
-          <div class="space-y-2">
-            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
-              Sangram Keshari <span class="text-brand-600">Sundaray</span>
+          <div class="space-y-3">
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+              Sangram Keshari <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">Sundaray</span>
             </h1>
-            <p class="text-lg sm:text-xl font-medium text-slate-700 flex flex-wrap items-center gap-2">
-              <span>Senior Software Developer</span>
-              <span class="text-slate-300">•</span>
-              <span class="text-brand-700 bg-brand-50 px-2.5 py-0.5 rounded-md border border-brand-200 text-sm font-semibold">Web Apps, Generative & Agentic AI</span>
+            <p class="text-lg sm:text-xl font-medium text-slate-300 flex flex-wrap items-center gap-2">
+              <span class="text-slate-100 font-semibold">Senior Software Developer</span>
+              <span class="text-slate-600">•</span>
+              <span class="text-emerald-300 bg-emerald-950/70 px-2.5 py-0.5 rounded-md border border-emerald-800/80 text-sm font-mono font-medium">
+                Web Apps, Generative & Agentic AI
+              </span>
             </p>
           </div>
 
-          <!-- Concise Senior Summary -->
-          <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl">
-            10+ years architecting scalable web applications, enterprise automation engines, and production-grade <strong class="text-slate-900 font-semibold">Agentic AI & GenAI systems</strong>. Deep specialization in <span class="text-slate-900 font-medium">Python-Django backend engineering</span>, <span class="text-slate-900 font-medium">LangGraph multi-agent orchestration</span>, and robust cloud deployments on <span class="text-slate-900 font-medium">GCP & AWS</span>.
+          <!-- Senior Engineer Positioning Paragraph -->
+          <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
+            <strong class="text-white font-semibold">10+ years of engineering experience</strong> designing and shipping resilient backend systems, enterprise automation tools, and production-grade <span class="text-emerald-400 font-medium">Agentic AI & GenAI SaaS products</span>. Deep mastery of <span class="text-slate-100 font-medium">Python-Django</span>, multi-agent state orchestration with <span class="text-slate-100 font-medium">LangGraph</span>, and end-to-end cloud infrastructure on <span class="text-slate-100 font-medium">GCP & AWS</span>.
           </p>
 
-          <!-- Quick Contact Badges & Actions -->
+          <!-- Contact / Quick Access Bar -->
           <div class="pt-2 flex flex-wrap items-center gap-3">
-            <!-- Email Badge with Copy -->
-            <div class="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 hover:bg-white text-xs font-mono text-slate-700 px-3 py-2 shadow-subtle group transition-colors">
-              <i data-lucide="mail" class="w-3.5 h-3.5 text-brand-600 mr-2 flex-shrink-0"></i>
-              <a href="mailto:sangramz@hotmail.com" class="hover:text-brand-600 transition-colors mr-2">sangramz@hotmail.com</a>
-              <button onclick="copyToClipboard('sangramz@hotmail.com', this)" title="Copy Email" class="text-slate-400 hover:text-slate-700 p-0.5 rounded">
+            <!-- Email Badge with One-click Copy -->
+            <div class="inline-flex items-center rounded-lg border border-white/10 bg-slate-900/90 hover:bg-slate-800 text-xs font-mono text-slate-300 px-3 py-2 shadow-inner group transition-colors">
+              <i data-lucide="mail" class="w-3.5 h-3.5 text-emerald-400 mr-2 flex-shrink-0"></i>
+              <a href="mailto:sangramz@hotmail.com" class="hover:text-emerald-400 transition-colors mr-2">sangramz@hotmail.com</a>
+              <button onclick="copyToClipboard('sangramz@hotmail.com', this)" title="Copy Email to Clipboard" class="text-slate-400 hover:text-white p-0.5 rounded transition-colors">
                 <i data-lucide="copy" class="w-3.5 h-3.5"></i>
               </button>
             </div>
 
             <!-- Phone Badge -->
-            <a href="tel:+919937826218" class="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 hover:bg-white text-xs font-mono text-slate-700 px-3 py-2 shadow-subtle hover:text-brand-600 transition-colors">
-              <i data-lucide="phone" class="w-3.5 h-3.5 text-brand-600 mr-2 flex-shrink-0"></i>
+            <a href="tel:+919937826218" class="inline-flex items-center rounded-lg border border-white/10 bg-slate-900/90 hover:bg-slate-800 text-xs font-mono text-slate-300 px-3 py-2 shadow-inner hover:text-emerald-400 transition-colors">
+              <i data-lucide="phone" class="w-3.5 h-3.5 text-emerald-400 mr-2 flex-shrink-0"></i>
               <span>+91 9937-82-6218</span>
             </a>
 
-            <!-- Portfolio Link -->
-            <a href="https://sangramz.github.io" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 hover:bg-white text-xs font-mono text-slate-700 px-3 py-2 shadow-subtle hover:text-brand-600 transition-colors">
-              <i data-lucide="globe" class="w-3.5 h-3.5 text-brand-600 mr-2 flex-shrink-0"></i>
+            <!-- Portfolio Website -->
+            <a href="https://sangramz.github.io" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-lg border border-white/10 bg-slate-900/90 hover:bg-slate-800 text-xs font-mono text-slate-300 px-3 py-2 shadow-inner hover:text-emerald-400 transition-colors">
+              <i data-lucide="globe" class="w-3.5 h-3.5 text-emerald-400 mr-2 flex-shrink-0"></i>
               <span>sangramz.github.io</span>
             </a>
 
-            <!-- Location Badge -->
-            <div class="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 text-xs font-mono text-slate-700 px-3 py-2 shadow-subtle">
-              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-600 mr-2 flex-shrink-0"></i>
-              <span>Bhubaneswar, Odisha</span>
+            <!-- Location -->
+            <div class="inline-flex items-center rounded-lg border border-white/10 bg-slate-900/90 text-xs font-mono text-slate-400 px-3 py-2 shadow-inner">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-emerald-400 mr-2 flex-shrink-0"></i>
+              <span>Patia, Bhubaneswar, India</span>
             </div>
           </div>
 
           <!-- CTAs -->
           <div class="pt-4 flex flex-wrap items-center gap-3">
-            <a href="mailto:sangramz@hotmail.com?subject=Senior%20Software%20Developer%20Opportunity" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-slate-900 text-white hover:bg-brand-600 font-semibold text-xs uppercase tracking-wider transition-all shadow hover:shadow-md">
+            <a href="mailto:sangramz@hotmail.com?subject=Senior%20Software%20Developer%20Opportunity" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-all shadow-glow-emerald">
               <i data-lucide="send" class="w-4 h-4"></i>
-              <span>Initiate Conversation</span>
+              <span>Contact / Hire Me</span>
             </a>
-            <a href="assets/resume.pdf" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white border border-slate-300 text-slate-800 hover:bg-slate-50 font-semibold text-xs uppercase tracking-wider transition-all shadow-subtle">
-              <i data-lucide="external-link" class="w-4 h-4 text-slate-500"></i>
+            <a href="assets/resume.pdf" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-slate-900/80 border border-white/10 text-slate-200 hover:bg-slate-800 hover:text-white font-semibold text-xs uppercase tracking-wider transition-all shadow-sm">
+              <i data-lucide="external-link" class="w-4 h-4 text-emerald-400"></i>
               <span>View PDF Resume</span>
             </a>
           </div>
         </div>
 
-        <!-- Right Column: Profile Picture Card & Quick Architecture Highlights -->
+        <!-- Right Column: Profile Picture & Quick Stack Card -->
         <div class="lg:col-span-4 flex flex-col items-center lg:items-end">
           <div class="relative w-56 sm:w-64">
-            <!-- Decorative Border Frame -->
-            <div class="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-brand-100 via-slate-100 to-brand-50 border border-slate-200/80 -z-10 rotate-1"></div>
             
-            <div class="bg-white p-2 rounded-2xl border border-slate-200 shadow-card overflow-hidden">
-              <img 
-                src="assets/profile_pic.jpg" 
-                alt="Sangram Keshari Sundaray - Senior Software Developer" 
-                class="w-full h-64 sm:h-72 object-cover object-center rounded-xl filter contrast-[1.02] brightness-[1.01]"
-                loading="eager"
-              >
-              <div class="p-3 bg-slate-50/80 rounded-b-xl border-t border-slate-100 mt-2">
+            <!-- Glowing background gradient ring -->
+            <div class="absolute -inset-1.5 rounded-2xl bg-gradient-to-tr from-emerald-500/40 via-cyan-500/20 to-blue-500/40 blur-lg -z-10 opacity-70"></div>
+            
+            <!-- Profile Card -->
+            <div class="glass-card rounded-2xl p-2.5 overflow-hidden shadow-dark-card border border-white/10">
+              <div class="relative overflow-hidden rounded-xl bg-slate-900">
+                <img 
+                  src="assets/profile_pic.jpg" 
+                  alt="Sangram Keshari Sundaray - Senior Software Developer" 
+                  class="w-full h-64 sm:h-72 object-cover object-center filter contrast-[1.05] brightness-[0.98] transition-transform duration-500 hover:scale-105"
+                  loading="eager"
+                >
+                <!-- Subtle Gradient Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0B0F17] via-transparent to-transparent opacity-60"></div>
+              </div>
+
+              <!-- Mini Spec Footer -->
+              <div class="p-3 bg-slate-900/90 rounded-b-xl border-t border-white/5 mt-2">
                 <div class="flex items-center justify-between text-xs">
-                  <span class="font-mono text-slate-500 text-[11px]">Primary Stacks</span>
-                  <span class="text-brand-700 font-mono font-semibold text-[11px]">Django + LangGraph</span>
+                  <span class="font-mono text-slate-400 text-[11px]">Primary Core</span>
+                  <span class="text-emerald-400 font-mono font-semibold text-[11px]">Python & LangGraph</span>
                 </div>
-                <div class="mt-1.5 flex flex-wrap gap-1">
-                  <span class="text-[10px] font-mono bg-white px-2 py-0.5 rounded border border-slate-200 text-slate-700">Python</span>
-                  <span class="text-[10px] font-mono bg-white px-2 py-0.5 rounded border border-slate-200 text-slate-700">Multi-Agent</span>
-                  <span class="text-[10px] font-mono bg-white px-2 py-0.5 rounded border border-slate-200 text-slate-700">PostgreSQL</span>
-                  <span class="text-[10px] font-mono bg-white px-2 py-0.5 rounded border border-slate-200 text-slate-700">GCP</span>
+                <div class="mt-2 flex flex-wrap gap-1">
+                  <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded border border-white/5">Django REST</span>
+                  <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded border border-white/5">Multi-Agent</span>
+                  <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded border border-white/5">PostgreSQL</span>
+                  <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded border border-white/5">GCP / AWS</span>
                 </div>
               </div>
             </div>
 
-            <!-- Floating Pill -->
-            <div class="absolute -bottom-3 -left-3 bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-card flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-              <span class="text-[11px] font-mono font-semibold text-slate-800">10+ Years In Code</span>
+            <!-- Floating Badge -->
+            <div class="absolute -bottom-3 -left-3 bg-[#111827] px-3.5 py-1.5 rounded-lg border border-emerald-500/40 shadow-glow-emerald flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="text-[11px] font-mono font-bold text-white tracking-wide">10+ Years Exp</span>
             </div>
+
           </div>
         </div>
 
@@ -320,32 +360,32 @@
   </section>
 
   <!-- Metric Badges Bar -->
-  <div class="no-print bg-slate-50 border-b border-slate-200/90 py-6">
+  <div class="no-print bg-[#080C14] border-b border-white/[0.06] py-7">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
         
-        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-subtle flex flex-col justify-between">
-          <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-mono">10+ <span class="text-brand-600 text-lg">Yrs</span></div>
-          <div class="text-xs font-medium text-slate-500 mt-1 uppercase tracking-wider">Software Engineering</div>
-          <div class="text-[11px] text-slate-400 mt-0.5">Enterprise to SaaS</div>
+        <div class="bg-[#111827]/80 p-4 rounded-xl border border-white/[0.06] shadow-dark-card flex flex-col justify-between hover:border-emerald-500/30 transition-colors">
+          <div class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight font-mono">10+ <span class="text-emerald-400 text-lg">Yrs</span></div>
+          <div class="text-xs font-semibold text-slate-300 mt-1 uppercase tracking-wider">Production Software</div>
+          <div class="text-[11px] text-slate-500 mt-0.5">Enterprise, SaaS & Startups</div>
         </div>
 
-        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-subtle flex flex-col justify-between">
-          <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-mono">5+ <span class="text-brand-600 text-lg">AI Systems</span></div>
-          <div class="text-xs font-medium text-slate-500 mt-1 uppercase tracking-wider">LangGraph & Agentic</div>
-          <div class="text-[11px] text-slate-400 mt-0.5">Multi-agent & RAG architectures</div>
+        <div class="bg-[#111827]/80 p-4 rounded-xl border border-white/[0.06] shadow-dark-card flex flex-col justify-between hover:border-emerald-500/30 transition-colors">
+          <div class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight font-mono">5+ <span class="text-emerald-400 text-lg">AI Systems</span></div>
+          <div class="text-xs font-semibold text-slate-300 mt-1 uppercase tracking-wider">LangGraph Architectures</div>
+          <div class="text-[11px] text-slate-500 mt-0.5">Multi-agent reasoning & RAG</div>
         </div>
 
-        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-subtle flex flex-col justify-between">
-          <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-mono">15+ <span class="text-brand-600 text-lg">Platforms</span></div>
-          <div class="text-xs font-medium text-slate-500 mt-1 uppercase tracking-wider">Production Systems</div>
-          <div class="text-[11px] text-slate-400 mt-0.5">Healthcare, Fintech, Insurance</div>
+        <div class="bg-[#111827]/80 p-4 rounded-xl border border-white/[0.06] shadow-dark-card flex flex-col justify-between hover:border-emerald-500/30 transition-colors">
+          <div class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight font-mono">15+ <span class="text-emerald-400 text-lg">Platforms</span></div>
+          <div class="text-xs font-semibold text-slate-300 mt-1 uppercase tracking-wider">Full-Cycle Delivered</div>
+          <div class="text-[11px] text-slate-500 mt-0.5">Healthcare, Fintech, Insurance</div>
         </div>
 
-        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-subtle flex flex-col justify-between">
-          <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-mono">F500 <span class="text-brand-600 text-lg">Impact</span></div>
-          <div class="text-xs font-medium text-slate-500 mt-1 uppercase tracking-wider">PwC Engagement</div>
-          <div class="text-[11px] text-slate-400 mt-0.5">Legal Document Abstraction NLP</div>
+        <div class="bg-[#111827]/80 p-4 rounded-xl border border-white/[0.06] shadow-dark-card flex flex-col justify-between hover:border-emerald-500/30 transition-colors">
+          <div class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight font-mono">F500 <span class="text-emerald-400 text-lg">Impact</span></div>
+          <div class="text-xs font-semibold text-slate-300 mt-1 uppercase tracking-wider">PwC Engagement</div>
+          <div class="text-[11px] text-slate-500 mt-0.5">Legal Contract NLP Automation</div>
         </div>
 
       </div>
@@ -353,55 +393,62 @@
   </div>
 
   <!-- Main Content Container -->
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16 flex-grow">
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-20 flex-grow">
 
-    <!-- Section: Professional Summary & Engineering Philosophy -->
+    <!-- Section 01: Professional Summary & Engineering Philosophy -->
     <section id="summary" class="scroll-mt-24">
       <div class="flex items-center gap-3 mb-6">
-        <div class="w-8 h-8 rounded-lg bg-brand-50 border border-brand-200 text-brand-600 flex items-center justify-center font-mono font-bold text-xs">
+        <div class="w-8 h-8 rounded-lg bg-emerald-950/60 border border-emerald-800/80 text-emerald-400 flex items-center justify-center font-mono font-bold text-xs shadow-inner">
           01
         </div>
         <div>
-          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Executive Engineering Summary</h2>
-          <p class="text-xs text-slate-500 font-mono">Core architectural focus & full-lifecycle delivery</p>
+          <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Executive Engineering Summary</h2>
+          <p class="text-xs text-slate-400 font-mono">Architectural vision, backend discipline & production execution</p>
         </div>
       </div>
 
-      <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-card relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-1.5 h-full bg-brand-600"></div>
-        <div class="prose prose-slate max-w-none text-slate-700 leading-relaxed space-y-4">
-          <p class="text-base sm:text-lg">
-            Seasoned Senior Software Developer and Technical Lead with <strong>10+ years of verifiable experience</strong> building resilient web backends, high-concurrency microservices, AI/GenAI-powered SaaS products, and enterprise automation infrastructure.
+      <div class="glass-card rounded-2xl p-6 sm:p-8 shadow-dark-card relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-emerald-500 via-teal-400 to-cyan-500"></div>
+        <div class="space-y-6">
+          <p class="text-base sm:text-lg text-slate-200 leading-relaxed">
+            Hands-on Senior Software Developer and Tech Lead with <strong class="text-white font-semibold">10+ years of verifiable experience</strong> building scalable web applications, enterprise automation tools, and cutting-edge AI/GenAI-powered SaaS products. Proven track record across the entire product lifecycle — from system design and high-concurrency backend engineering to cloud deployment on GCP. Currently architecting multiple AI-first SaaS solutions.
           </p>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
             
-            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-2">
-              <div class="flex items-center gap-2 text-slate-900 font-semibold text-sm">
-                <i data-lucide="bot" class="w-4 h-4 text-brand-600"></i>
+            <div class="p-5 rounded-xl bg-slate-900/80 border border-white/[0.07] space-y-2.5 hover:border-emerald-500/30 transition-all">
+              <div class="flex items-center gap-2.5 text-white font-semibold text-sm">
+                <div class="p-1.5 rounded-md bg-emerald-950/80 text-emerald-400 border border-emerald-800/60">
+                  <i data-lucide="bot" class="w-4 h-4"></i>
+                </div>
                 <span>Agentic AI & LLMs</span>
               </div>
-              <p class="text-xs text-slate-600 leading-normal">
-                Multi-agent architectures with LangGraph and CrewAI, RAG pipelines with Pinecone, medical/legal document parsing, and guardrailed prompt engineering.
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Deterministic state machines with LangGraph, multi-agent triage and diagnosis teams, grounded RAG pipelines with Pinecone, medical/legal document extractors, and prompt guardrails.
               </p>
             </div>
 
-            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-2">
-              <div class="flex items-center gap-2 text-slate-900 font-semibold text-sm">
-                <i data-lucide="server" class="w-4 h-4 text-brand-600"></i>
-                <span>Backend & Architecture</span>
+            <div class="p-5 rounded-xl bg-slate-900/80 border border-white/[0.07] space-y-2.5 hover:border-cyan-500/30 transition-all">
+              <div class="flex items-center gap-2.5 text-white font-semibold text-sm">
+                <div class="p-1.5 rounded-md bg-cyan-950/80 text-cyan-400 border border-cyan-800/60">
+                  <i data-lucide="server" class="w-4 h-4"></i>
+                </div>
+                <span>Backend Engineering</span>
               </div>
-              <p class="text-xs text-slate-600 leading-normal">
-                Enterprise Python-Django, Django REST Framework, PostgreSQL optimization, multi-tenant database partitioning, and clean modular domain models.
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Enterprise Python-Django, Django REST Framework, PostgreSQL optimization, multi-tenant database isolation, Web3 smart contract trade execution, and secure role-based access control.
               </p>
             </div>
 
-            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-2">
-              <div class="flex items-center gap-2 text-slate-900 font-semibold text-sm">
-                <i data-lucide="cloud" class="w-4 h-4 text-brand-600"></i>
-                <span>Cloud & DevOps</span>
+            <div class="p-5 rounded-xl bg-slate-900/80 border border-white/[0.07] space-y-2.5 hover:border-blue-500/30 transition-all">
+              <div class="flex items-center gap-2.5 text-white font-semibold text-sm">
+                <div class="p-1.5 rounded-md bg-blue-950/80 text-blue-400 border border-blue-800/60">
+                  <i data-lucide="cloud" class="w-4 h-4"></i>
+                </div>
+                <span>Cloud & Infrastructure</span>
               </div>
-              <p class="text-xs text-slate-600 leading-normal">
-                End-to-end deployment on Google Cloud Platform (GCP) and AWS, Docker containerization, Gunicorn/Nginx tuning, automated SSL, and GitHub CI/CD pipelines.
+              <p class="text-xs text-slate-400 leading-relaxed">
+                End-to-end cloud deployments on GCP and AWS, Docker container orchestration, Nginx reverse proxy tuning, Gunicorn WSGI workers, automated SSL renew scripts, and CI/CD pipelines.
               </p>
             </div>
 
@@ -410,132 +457,132 @@
       </div>
     </section>
 
-    <!-- Section: Technical Skills Matrix -->
+    <!-- Section 02: Technical Competencies Matrix -->
     <section id="skills" class="scroll-mt-24">
       <div class="flex items-center gap-3 mb-6">
-        <div class="w-8 h-8 rounded-lg bg-brand-50 border border-brand-200 text-brand-600 flex items-center justify-center font-mono font-bold text-xs">
+        <div class="w-8 h-8 rounded-lg bg-emerald-950/60 border border-emerald-800/80 text-emerald-400 flex items-center justify-center font-mono font-bold text-xs shadow-inner">
           02
         </div>
         <div>
-          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Technical Competencies</h2>
-          <p class="text-xs text-slate-500 font-mono">Battle-tested tools, frameworks & engineering disciplines</p>
+          <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Technical Competencies Matrix</h2>
+          <p class="text-xs text-slate-400 font-mono">Specialized tech stack, libraries & systems engineering</p>
         </div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         
-        <!-- Category 1: Generative & Agentic AI (Highlight) -->
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-card hover:border-brand-200 transition-all">
-          <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+        <!-- Category 1: Generative & Agentic AI -->
+        <div class="glass-card rounded-2xl p-6 shadow-dark-card hover:border-emerald-500/40 hover:shadow-glow-emerald transition-all">
+          <div class="flex items-center justify-between pb-4 border-b border-white/[0.06]">
             <div class="flex items-center gap-2.5">
-              <div class="p-2 rounded-lg bg-purple-50 text-purple-600 border border-purple-200">
+              <div class="p-2 rounded-lg bg-purple-950/70 text-purple-400 border border-purple-800/60">
                 <i data-lucide="sparkles" class="w-4 h-4"></i>
               </div>
-              <h3 class="font-bold text-slate-900 text-base">Generative & Agentic AI</h3>
+              <h3 class="font-bold text-white text-base">Generative & Agentic AI</h3>
             </div>
-            <span class="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-purple-50 text-purple-700 border border-purple-200">Core Specialty</span>
+            <span class="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-purple-950/80 text-purple-300 border border-purple-800/70">Core Specialization</span>
           </div>
-          <div class="pt-4 space-y-3">
+          <div class="pt-5 space-y-4">
             <div class="flex flex-wrap gap-2">
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-purple-50 text-purple-800 rounded-md border border-purple-200/80">LangGraph</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-purple-50 text-purple-800 rounded-md border border-purple-200/80">CrewAI</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-purple-50 text-purple-800 rounded-md border border-purple-200/80">LangChain</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">RAG Pipelines</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">VectorDB (Pinecone)</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">Multi-Agent Systems</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">LLM APIs & Tool Calling</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">Prompt Engineering</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">Guardrails & Fallbacks</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">spaCy & NLTK (NER)</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-purple-950/50 text-purple-200 rounded-md border border-purple-700/50">LangGraph</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-purple-950/50 text-purple-200 rounded-md border border-purple-700/50">CrewAI</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-purple-950/50 text-purple-200 rounded-md border border-purple-700/50">LangChain</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">RAG Pipelines</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">VectorDB (Pinecone)</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">Multi-Agent Systems</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">Prompt Guardrails</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">LLM Tool Calling</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">spaCy & NLTK (NER)</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">PDF Document Parser</span>
             </div>
-            <p class="text-xs text-slate-500 pt-1 leading-normal">
-              Specialized in deterministic state machine agents, recursive reasoning loops, and compliant retrieval systems over proprietary documents.
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Expertise in multi-step reasoning loops, deterministic human-in-the-loop state checkpoints, and grounded document retrieval systems preventing LLM hallucinations.
             </p>
           </div>
         </div>
 
         <!-- Category 2: Backend Engineering -->
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-card hover:border-brand-200 transition-all">
-          <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+        <div class="glass-card rounded-2xl p-6 shadow-dark-card hover:border-cyan-500/40 hover:shadow-glow-cyan transition-all">
+          <div class="flex items-center justify-between pb-4 border-b border-white/[0.06]">
             <div class="flex items-center gap-2.5">
-              <div class="p-2 rounded-lg bg-blue-50 text-blue-600 border border-blue-200">
+              <div class="p-2 rounded-lg bg-cyan-950/70 text-cyan-400 border border-cyan-800/60">
                 <i data-lucide="cpu" class="w-4 h-4"></i>
               </div>
-              <h3 class="font-bold text-slate-900 text-base">Backend & Systems</h3>
+              <h3 class="font-bold text-white text-base">Backend & Systems</h3>
             </div>
-            <span class="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200">10+ Years</span>
+            <span class="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-cyan-950/80 text-cyan-300 border border-cyan-800/70">10+ Years</span>
           </div>
-          <div class="pt-4 space-y-3">
+          <div class="pt-5 space-y-4">
             <div class="flex flex-wrap gap-2">
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-blue-50 text-blue-800 rounded-md border border-blue-200/80">Python (Core & Async)</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-blue-50 text-blue-800 rounded-md border border-blue-200/80">Django</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-blue-50 text-blue-800 rounded-md border border-blue-200/80">Django REST Framework</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">PostgreSQL</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">Docker</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">Multi-tenant Architecture</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">RESTful API Design</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">Web3 & Smart Contracts</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">Authentication & RBAC</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">Supabase</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-cyan-950/50 text-cyan-200 rounded-md border border-cyan-700/50">Python (Core & Async)</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-cyan-950/50 text-cyan-200 rounded-md border border-cyan-700/50">Django</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-cyan-950/50 text-cyan-200 rounded-md border border-cyan-700/50">Django REST Framework</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">PostgreSQL</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">Docker</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">Multi-tenant Architecture</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">Web3 & Infura</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">Smart Contracts</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">Supabase</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">Security Auditing</span>
             </div>
-            <p class="text-xs text-slate-500 pt-1 leading-normal">
-              High-throughput REST APIs, relational schema optimization, query indexing, secure token handling, and multi-operator SaaS architectures.
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Design of secure, high-throughput REST APIs, relational schema tuning, asynchronous Celery queues, and cryptographic settlement logic.
             </p>
           </div>
         </div>
 
         <!-- Category 3: Cloud, Infrastructure & DevOps -->
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-card hover:border-brand-200 transition-all">
-          <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+        <div class="glass-card rounded-2xl p-6 shadow-dark-card hover:border-emerald-500/40 transition-all">
+          <div class="flex items-center justify-between pb-4 border-b border-white/[0.06]">
             <div class="flex items-center gap-2.5">
-              <div class="p-2 rounded-lg bg-emerald-50 text-emerald-600 border border-emerald-200">
+              <div class="p-2 rounded-lg bg-emerald-950/70 text-emerald-400 border border-emerald-800/60">
                 <i data-lucide="cloud-cog" class="w-4 h-4"></i>
               </div>
-              <h3 class="font-bold text-slate-900 text-base">Cloud, Deployment & DevOps</h3>
+              <h3 class="font-bold text-white text-base">Cloud & DevOps</h3>
             </div>
-            <span class="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">Production</span>
+            <span class="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-300 border border-emerald-800/70">Production</span>
           </div>
-          <div class="pt-4 space-y-3">
+          <div class="pt-5 space-y-4">
             <div class="flex flex-wrap gap-2">
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-emerald-50 text-emerald-800 rounded-md border border-emerald-200/80">Google Cloud Platform (GCP)</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-emerald-50 text-emerald-800 rounded-md border border-emerald-200/80">AWS</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">Nginx Reverse Proxy</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">Gunicorn WSGI</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">GitHub Actions CI/CD</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">Automated SSL / Certbot</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">Environment Security</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">Linux System Administration</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-emerald-950/50 text-emerald-200 rounded-md border border-emerald-700/50">Google Cloud Platform (GCP)</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-emerald-950/50 text-emerald-200 rounded-md border border-emerald-700/50">AWS</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">Docker Containers</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">Nginx Reverse Proxy</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">Gunicorn WSGI</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">GitHub Actions CI/CD</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">Certbot SSL Automation</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">Linux SysAdmin</span>
             </div>
-            <p class="text-xs text-slate-500 pt-1 leading-normal">
-              Managing complete cloud lifecycles: system provisioning, load-balancing, zero-downtime deployment pipelines, and post-launch monitoring.
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Complete ownership from containerizing multi-tier apps to orchestrating zero-downtime deployments with health checks and log monitoring.
             </p>
           </div>
         </div>
 
-        <!-- Category 4: Frontend & Product Engineering -->
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-card hover:border-brand-200 transition-all">
-          <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+        <!-- Category 4: Frontend & UI Systems -->
+        <div class="glass-card rounded-2xl p-6 shadow-dark-card hover:border-amber-500/40 transition-all">
+          <div class="flex items-center justify-between pb-4 border-b border-white/[0.06]">
             <div class="flex items-center gap-2.5">
-              <div class="p-2 rounded-lg bg-amber-50 text-amber-600 border border-amber-200">
+              <div class="p-2 rounded-lg bg-amber-950/70 text-amber-400 border border-amber-800/60">
                 <i data-lucide="layout" class="w-4 h-4"></i>
               </div>
-              <h3 class="font-bold text-slate-900 text-base">Frontend & Interface</h3>
+              <h3 class="font-bold text-white text-base">Frontend & Interface</h3>
             </div>
-            <span class="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200">Full-Stack</span>
+            <span class="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-amber-950/80 text-amber-300 border border-amber-800/70">Full-Stack</span>
           </div>
-          <div class="pt-4 space-y-3">
+          <div class="pt-5 space-y-4">
             <div class="flex flex-wrap gap-2">
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-amber-50 text-amber-800 rounded-md border border-amber-200/80">Tailwind CSS</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-amber-50 text-amber-800 rounded-md border border-amber-200/80">HTMX</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">React.js</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">JavaScript (ES6+)</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">Bootstrap</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">HTML5 Semantic</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">CSS3 Flex/Grid</span>
-              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-100 text-slate-800 rounded-md border border-slate-200">Responsive UI/UX</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-amber-950/50 text-amber-200 rounded-md border border-amber-700/50">Tailwind CSS</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-amber-950/50 text-amber-200 rounded-md border border-amber-700/50">HTMX</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">React.js</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">JavaScript (ES6+)</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">Bootstrap</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">HTML5 Semantic</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">CSS3 Grid / Flex</span>
+              <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-800/90 text-slate-200 rounded-md border border-white/10">Responsive UI</span>
             </div>
-            <p class="text-xs text-slate-500 pt-1 leading-normal">
-              Building ultra-fast modern interfaces using lightweight reactive paradigms (HTMX) and component-based dashboards (React & Tailwind).
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Rapid reactive UI architecture with minimal overhead using HTMX alongside component-rich dashboards built with React and Tailwind CSS.
             </p>
           </div>
         </div>
@@ -543,215 +590,218 @@
       </div>
     </section>
 
-    <!-- Section: Work Experience Timeline -->
+    <!-- Section 03: Work Experience Timeline -->
     <section id="experience" class="scroll-mt-24">
       <div class="flex items-center gap-3 mb-6">
-        <div class="w-8 h-8 rounded-lg bg-brand-50 border border-brand-200 text-brand-600 flex items-center justify-center font-mono font-bold text-xs">
+        <div class="w-8 h-8 rounded-lg bg-emerald-950/60 border border-emerald-800/80 text-emerald-400 flex items-center justify-center font-mono font-bold text-xs shadow-inner">
           03
         </div>
         <div>
-          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Work Experience</h2>
-          <p class="text-xs text-slate-500 font-mono">Progressive career history across leadership, architecture & execution</p>
+          <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Work Experience</h2>
+          <p class="text-xs text-slate-400 font-mono">Progressive career history across leadership, architecture & execution</p>
         </div>
       </div>
 
       <!-- Timeline Container -->
-      <div class="relative border-l-2 border-slate-200 pl-4 sm:pl-8 space-y-10 ml-2 sm:ml-4">
+      <div class="relative border-l-2 border-slate-800 pl-4 sm:pl-8 space-y-10 ml-2 sm:ml-4">
         
-        <!-- Experience 1: Boldtribe Innovations (Current) -->
+        <!-- Experience 1: Boldtribe Innovations (Current Role) -->
         <div class="relative group">
           <!-- Timeline Marker -->
-          <div class="absolute -left-[25px] sm:-left-[41px] top-1.5 w-4 h-4 rounded-full bg-brand-600 border-4 border-white shadow"></div>
+          <div class="absolute -left-[25px] sm:-left-[41px] top-1.5 w-4 h-4 rounded-full bg-emerald-500 border-4 border-[#0B0F17] shadow-glow-emerald"></div>
           
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-7 shadow-card hover:border-brand-200 transition-all">
-            <div class="flex flex-wrap items-baseline justify-between gap-2 pb-3 border-b border-slate-100">
+          <div class="glass-card rounded-2xl p-6 sm:p-7 shadow-dark-card hover:border-emerald-500/40 transition-all">
+            <div class="flex flex-wrap items-baseline justify-between gap-2 pb-3 border-b border-white/[0.06]">
               <div>
-                <span class="inline-block text-xs font-mono font-semibold text-brand-700 bg-brand-50 px-2.5 py-0.5 rounded border border-brand-200 mb-1.5">Current Role</span>
-                <h3 class="text-lg sm:text-xl font-bold text-slate-900">Tech Lead (AI & Web Applications)</h3>
-                <div class="text-sm font-medium text-slate-600">Boldtribe Innovations Pvt Ltd</div>
+                <span class="inline-block text-xs font-mono font-semibold text-emerald-300 bg-emerald-950/80 px-2.5 py-0.5 rounded border border-emerald-800/60 mb-2">
+                  Current Leadership Role
+                </span>
+                <h3 class="text-lg sm:text-xl font-bold text-white">Tech Lead (AI & Web Applications)</h3>
+                <div class="text-sm font-medium text-slate-400">Boldtribe Innovations Pvt Ltd</div>
               </div>
-              <div class="font-mono text-xs text-slate-500 bg-slate-50 px-3 py-1 rounded-md border border-slate-200">
+              <div class="font-mono text-xs text-emerald-400 bg-slate-900/90 px-3 py-1 rounded-md border border-white/10">
                 Nov 2024 – Present
               </div>
             </div>
 
-            <ul class="mt-4 space-y-2.5 text-sm text-slate-700 leading-relaxed list-disc list-outside pl-4">
+            <ul class="mt-4 space-y-2.5 text-sm text-slate-300 leading-relaxed list-disc list-outside pl-4">
               <li>
-                <strong>Zymedics Health Platform:</strong> Architected full backend APIs and full-stack doctor modules incorporating AI-driven diagnostics, automated medical transcription, and prescription generation.
+                <strong class="text-white">Zymedics Health Platform:</strong> Developed full backend APIs and full-stack doctor modules incorporating AI-driven diagnostics and prescription generation.
               </li>
               <li>
-                <strong>Dubai Islamic Insurance (Takaful):</strong> Spearheaded backend API development integrating AI recommendation systems, sales chatbots, policy reasoning engines, and automated insurance planning workflows.
+                <strong class="text-white">Dubai Islamic Insurance (Takaful):</strong> Led backend API development for a Dubai-based Islamic Insurance company, integrating AI recommendation systems, sales chatbots, and insurance planning tools.
               </li>
               <li>
-                <strong>Architectural Leadership & Mentorship:</strong> Mentored junior engineers and instituted standardized software design patterns (DRF viewsets, service-layer abstractions, LangGraph states) adopted organization-wide.
+                <strong class="text-white">Architectural Mentorship:</strong> Mentored junior engineers and established standardized architectural patterns adopted organization-wide.
               </li>
               <li>
-                <strong>Generative AI Feature Integration:</strong> Built and integrated GenAI capabilities across client portfolios — including LLM-powered document processing, intelligent summarization, and human-in-the-loop workflows.
+                <strong class="text-white">Generative AI Features:</strong> Built and integrated GenAI capabilities into client products — including LLM-powered document processing, intelligent summarization, and AI-assisted workflows.
               </li>
               <li>
-                <strong>Production RESTful Backends:</strong> Developed enterprise REST APIs with Django REST Framework, orchestrating third-party services, secure auth systems, and asynchronous background pipelines.
+                <strong class="text-white">Robust RESTful APIs:</strong> Developed RESTful backend APIs with Django REST Framework, integrating third-party services, authentication systems, and data pipelines.
               </li>
               <li>
-                <strong>End-to-End Delivery:</strong> Governed full delivery cycle: requirement scoping → architectural system design → development → testing → GCP deployment → post-launch SLA support.
+                <strong class="text-white">End-to-End Ownership:</strong> Managed end-to-end project delivery: requirement analysis → system design → development → testing → GCP deployment → post-launch support.
               </li>
               <li>
-                <strong>Cross-Functional Collaboration:</strong> Partnered closely with frontend, product managers, and QA teams to ship production-grade applications on schedule.
+                <strong class="text-white">Cross-Functional Velocity:</strong> Collaborated with cross-functional teams (frontend, product, QA) to ship production-grade applications on schedule.
               </li>
             </ul>
 
-            <div class="mt-4 pt-3 border-t border-slate-100 flex flex-wrap gap-1.5">
-              <span class="text-[11px] font-mono bg-slate-50 text-slate-700 px-2 py-0.5 rounded border border-slate-200">LangGraph</span>
-              <span class="text-[11px] font-mono bg-slate-50 text-slate-700 px-2 py-0.5 rounded border border-slate-200">Python/Django</span>
-              <span class="text-[11px] font-mono bg-slate-50 text-slate-700 px-2 py-0.5 rounded border border-slate-200">PostgreSQL</span>
-              <span class="text-[11px] font-mono bg-slate-50 text-slate-700 px-2 py-0.5 rounded border border-slate-200">GCP</span>
-              <span class="text-[11px] font-mono bg-slate-50 text-slate-700 px-2 py-0.5 rounded border border-slate-200">Docker</span>
-              <span class="text-[11px] font-mono bg-slate-50 text-slate-700 px-2 py-0.5 rounded border border-slate-200">REST APIs</span>
+            <div class="mt-4 pt-3 border-t border-white/[0.06] flex flex-wrap gap-1.5">
+              <span class="text-[11px] font-mono bg-slate-900 text-emerald-300 px-2.5 py-0.5 rounded border border-emerald-900/60">LangGraph</span>
+              <span class="text-[11px] font-mono bg-slate-900 text-slate-300 px-2.5 py-0.5 rounded border border-white/10">Python-Django</span>
+              <span class="text-[11px] font-mono bg-slate-900 text-slate-300 px-2.5 py-0.5 rounded border border-white/10">PostgreSQL</span>
+              <span class="text-[11px] font-mono bg-slate-900 text-slate-300 px-2.5 py-0.5 rounded border border-white/10">GCP</span>
+              <span class="text-[11px] font-mono bg-slate-900 text-slate-300 px-2.5 py-0.5 rounded border border-white/10">Docker</span>
+              <span class="text-[11px] font-mono bg-slate-900 text-slate-300 px-2.5 py-0.5 rounded border border-white/10">DRF</span>
             </div>
           </div>
         </div>
 
         <!-- Experience 2: ConVoyage Systems -->
         <div class="relative group">
-          <div class="absolute -left-[25px] sm:-left-[41px] top-1.5 w-4 h-4 rounded-full bg-slate-400 border-4 border-white shadow"></div>
+          <div class="absolute -left-[25px] sm:-left-[41px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-[#0B0F17]"></div>
           
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-7 shadow-card hover:border-slate-300 transition-all">
-            <div class="flex flex-wrap items-baseline justify-between gap-2 pb-3 border-b border-slate-100">
+          <div class="glass-card rounded-2xl p-6 sm:p-7 shadow-dark-card hover:border-slate-700 transition-all">
+            <div class="flex flex-wrap items-baseline justify-between gap-2 pb-3 border-b border-white/[0.06]">
               <div>
-                <h3 class="text-lg sm:text-xl font-bold text-slate-900">Individual Contributor</h3>
-                <div class="text-sm font-medium text-slate-600">ConVoyage Systems Pvt Ltd</div>
+                <h3 class="text-lg sm:text-xl font-bold text-white">Individual Contributor</h3>
+                <div class="text-sm font-medium text-slate-400">ConVoyage Systems Pvt Ltd</div>
               </div>
-              <div class="font-mono text-xs text-slate-500 bg-slate-50 px-3 py-1 rounded-md border border-slate-200">
+              <div class="font-mono text-xs text-slate-400 bg-slate-900/90 px-3 py-1 rounded-md border border-white/10">
                 Sep 2020 – Nov 2024
               </div>
             </div>
 
-            <ul class="mt-4 space-y-2.5 text-sm text-slate-700 leading-relaxed list-disc list-outside pl-4">
+            <ul class="mt-4 space-y-2.5 text-sm text-slate-300 leading-relaxed list-disc list-outside pl-4">
               <li>
-                <strong>Digishares.in Fractional Investment Platform:</strong> Led backend development for an asset tokenization and fractional real estate investment portal using Django and Web3 protocols integrated via Infura.
+                <strong class="text-white">Digishares.in Fractional Investment Platform:</strong> Led backend development for fractional investment platform Digishares.in using Django and Web3 technologies integrated via Infura.
               </li>
               <li>
-                <strong>Smart Contract Architecture:</strong> Architected secure EVM-compatible smart contracts for trade execution, compliance constraints, and investor settlement logic.
+                <strong class="text-white">Smart Contracts:</strong> Architected secure smart contracts for trade execution and compliance.
               </li>
               <li>
-                <strong>Quality & Security Engineering:</strong> Instituted rigorous code review procedures and security audits across repositories, significantly reducing production bugs and hardening API endpoints.
+                <strong class="text-white">Security & Code Auditing:</strong> Instituted code review processes and security audits, reducing vulnerabilities and improving code quality.
               </li>
             </ul>
 
-            <div class="mt-4 pt-3 border-t border-slate-100 flex flex-wrap gap-1.5">
-              <span class="text-[11px] font-mono bg-slate-50 text-slate-700 px-2 py-0.5 rounded border border-slate-200">Python</span>
-              <span class="text-[11px] font-mono bg-slate-50 text-slate-700 px-2 py-0.5 rounded border border-slate-200">Django</span>
-              <span class="text-[11px] font-mono bg-slate-50 text-slate-700 px-2 py-0.5 rounded border border-slate-200">Web3 / Infura</span>
-              <span class="text-[11px] font-mono bg-slate-50 text-slate-700 px-2 py-0.5 rounded border border-slate-200">Smart Contracts</span>
-              <span class="text-[11px] font-mono bg-slate-50 text-slate-700 px-2 py-0.5 rounded border border-slate-200">Security Audits</span>
+            <div class="mt-4 pt-3 border-t border-white/[0.06] flex flex-wrap gap-1.5">
+              <span class="text-[11px] font-mono bg-slate-900 text-slate-300 px-2.5 py-0.5 rounded border border-white/10">Python</span>
+              <span class="text-[11px] font-mono bg-slate-900 text-slate-300 px-2.5 py-0.5 rounded border border-white/10">Django</span>
+              <span class="text-[11px] font-mono bg-slate-900 text-slate-300 px-2.5 py-0.5 rounded border border-white/10">Web3 / Infura</span>
+              <span class="text-[11px] font-mono bg-slate-900 text-slate-300 px-2.5 py-0.5 rounded border border-white/10">Smart Contracts</span>
+              <span class="text-[11px] font-mono bg-slate-900 text-slate-300 px-2.5 py-0.5 rounded border border-white/10">Security Audits</span>
             </div>
           </div>
         </div>
 
         <!-- Experience 3: Remote / Freelance (Web & NLP) -->
         <div class="relative group">
-          <div class="absolute -left-[25px] sm:-left-[41px] top-1.5 w-4 h-4 rounded-full bg-slate-400 border-4 border-white shadow"></div>
+          <div class="absolute -left-[25px] sm:-left-[41px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-[#0B0F17]"></div>
           
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-7 shadow-card hover:border-slate-300 transition-all">
-            <div class="flex flex-wrap items-baseline justify-between gap-2 pb-3 border-b border-slate-100">
+          <div class="glass-card rounded-2xl p-6 sm:p-7 shadow-dark-card hover:border-slate-700 transition-all">
+            <div class="flex flex-wrap items-baseline justify-between gap-2 pb-3 border-b border-white/[0.06]">
               <div>
-                <h3 class="text-lg sm:text-xl font-bold text-slate-900">Remote / Freelance Software Developer — Web & NLP</h3>
-                <div class="text-sm font-medium text-slate-600">Contract engagements with enterprise & startups</div>
+                <h3 class="text-lg sm:text-xl font-bold text-white">Remote / Freelance Software Developer — Web & NLP</h3>
+                <div class="text-sm font-medium text-slate-400">Client Engagements & Tech Incubator Projects</div>
               </div>
-              <div class="font-mono text-xs text-slate-500 bg-slate-50 px-3 py-1 rounded-md border border-slate-200">
+              <div class="font-mono text-xs text-slate-400 bg-slate-900/90 px-3 py-1 rounded-md border border-white/10">
                 April 2018 – March 2020
               </div>
             </div>
 
-            <ul class="mt-4 space-y-2.5 text-sm text-slate-700 leading-relaxed list-disc list-outside pl-4">
+            <ul class="mt-4 space-y-2.5 text-sm text-slate-300 leading-relaxed list-disc list-outside pl-4">
               <li>
-                <strong>PwC Engagement (via Neukelp LLP / IIT Bhubaneswar TBI):</strong> Built an AI-powered Legal Document Abstraction Tool automating multi-hundred-page PDF contract parsing, clause extraction, and summary generation using Python, Django, and NLTK — directly delivering for a Fortune 500 engagement.
+                <strong class="text-white">PwC Engagement (via Neukelp LLP / IIT Bhubaneswar TBI):</strong> Built an AI-powered Legal Document Abstraction Tool for PwC, automating PDF parsing, clause extraction, and summarization using Python, Django, and NLTK — contributing directly to a Fortune 500 client engagement.
               </li>
               <li>
-                <strong>NLP & NER Modeling:</strong> Trained and evaluated Named Entity Recognition (NER) models on unstructured legal corpora to extract parties, execution dates, governing laws, and financial obligations using NLTK and spaCy.
+                <strong class="text-white">Named Entity Recognition (NER):</strong> Built and evaluated NER models on legal text corpora to extract parties, dates, clauses, and obligations using NLTK and spaCy.
               </li>
               <li>
-                <strong>MarvinAI Reseller Management:</strong> Architected and engineered a comprehensive multi-tier reseller portal in Django with inventory tracking, licensing, and analytical sales dashboards.
+                <strong class="text-white">MarvinAI Reseller Platform:</strong> Architected and developed a Reseller Management System for MarvinAI using Django — covering multi-tier user roles, inventory tracking, and analytics dashboards.
               </li>
               <li>
-                <strong>Technical Transparency:</strong> Delivered weekly technical progress demos and managed clean version-controlled Git branches across distributed teams.
+                <strong class="text-white">Code Quality & Delivery:</strong> Delivered weekly technical progress reports and maintained version-controlled codebases across all client engagements.
               </li>
             </ul>
 
-            <div class="mt-4 pt-3 border-t border-slate-100 flex flex-wrap gap-1.5">
-              <span class="text-[11px] font-mono bg-slate-50 text-slate-700 px-2 py-0.5 rounded border border-slate-200">Python</span>
-              <span class="text-[11px] font-mono bg-slate-50 text-slate-700 px-2 py-0.5 rounded border border-slate-200">Django</span>
-              <span class="text-[11px] font-mono bg-slate-50 text-slate-700 px-2 py-0.5 rounded border border-slate-200">spaCy</span>
-              <span class="text-[11px] font-mono bg-slate-50 text-slate-700 px-2 py-0.5 rounded border border-slate-200">NLTK</span>
-              <span class="text-[11px] font-mono bg-slate-50 text-slate-700 px-2 py-0.5 rounded border border-slate-200">PDF Parsing</span>
-              <span class="text-[11px] font-mono bg-slate-50 text-slate-700 px-2 py-0.5 rounded border border-slate-200">PwC Client</span>
+            <div class="mt-4 pt-3 border-t border-white/[0.06] flex flex-wrap gap-1.5">
+              <span class="text-[11px] font-mono bg-slate-900 text-slate-300 px-2.5 py-0.5 rounded border border-white/10">Python</span>
+              <span class="text-[11px] font-mono bg-slate-900 text-slate-300 px-2.5 py-0.5 rounded border border-white/10">Django</span>
+              <span class="text-[11px] font-mono bg-slate-900 text-slate-300 px-2.5 py-0.5 rounded border border-white/10">NLTK</span>
+              <span class="text-[11px] font-mono bg-slate-900 text-slate-300 px-2.5 py-0.5 rounded border border-white/10">spaCy</span>
+              <span class="text-[11px] font-mono bg-slate-900 text-slate-300 px-2.5 py-0.5 rounded border border-white/10">NER Models</span>
+              <span class="text-[11px] font-mono bg-slate-900 text-slate-300 px-2.5 py-0.5 rounded border border-white/10">PwC Client</span>
             </div>
           </div>
         </div>
 
         <!-- Experience 4: Full Stack Developer - SITSIndia -->
         <div class="relative group">
-          <div class="absolute -left-[25px] sm:-left-[41px] top-1.5 w-4 h-4 rounded-full bg-slate-300 border-4 border-white shadow"></div>
+          <div class="absolute -left-[25px] sm:-left-[41px] top-1.5 w-4 h-4 rounded-full bg-slate-700 border-4 border-[#0B0F17]"></div>
           
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-7 shadow-card hover:border-slate-300 transition-all">
-            <div class="flex flex-wrap items-baseline justify-between gap-2 pb-3 border-b border-slate-100">
+          <div class="glass-card rounded-2xl p-6 sm:p-7 shadow-dark-card hover:border-slate-700 transition-all">
+            <div class="flex flex-wrap items-baseline justify-between gap-2 pb-3 border-b border-white/[0.06]">
               <div>
-                <h3 class="text-lg sm:text-xl font-bold text-slate-900">Full Stack Developer</h3>
-                <div class="text-sm font-medium text-slate-600">SITSIndia</div>
+                <h3 class="text-lg sm:text-xl font-bold text-white">Full Stack Developer</h3>
+                <div class="text-sm font-medium text-slate-400">SITSIndia</div>
               </div>
-              <div class="font-mono text-xs text-slate-500 bg-slate-50 px-3 py-1 rounded-md border border-slate-200">
-                Jan 2015 – April 2018
+              <div class="font-mono text-xs text-slate-400 bg-slate-900/90 px-3 py-1 rounded-md border border-white/10">
+                January 2015 – April 2018
               </div>
             </div>
 
-            <ul class="mt-4 space-y-2 text-sm text-slate-700 leading-relaxed list-disc list-outside pl-4">
-              <li>Designed and delivered custom full-stack web applications for clients across healthcare, education, and e-commerce domains using Django, PHP, and WordPress.</li>
-              <li>Built rapid proof-of-concept prototypes for pre-sales demonstrations, significantly shortening client qualification and closing cycles.</li>
-              <li>Led a small development team — orchestrated sprint planning, task assignments, code reviews, and guaranteed on-time delivery.</li>
-              <li>Implemented data-driven conversion optimizations via Google Analytics and Zoho Analytics, reducing bounce rates and boosting user session lengths.</li>
+            <ul class="mt-4 space-y-2 text-sm text-slate-300 leading-relaxed list-disc list-outside pl-4">
+              <li>Designed and delivered full-stack web applications for clients across education, healthcare, and e-commerce verticals using Django, PHP, and WordPress.</li>
+              <li>Built rapid web app prototypes for pre-sales demonstrations, reducing client decision cycles by offering functional proof-of-concepts.</li>
+              <li>Led a small development team — handled sprint planning, task assignments, code reviews, and on-time project delivery.</li>
+              <li>Implemented analytics-driven optimization using Google Analytics and Zoho Analytics, improving bounce rate, session duration, and conversion rates.</li>
             </ul>
           </div>
         </div>
 
         <!-- Experience 5: Web Developer - LIT Solution -->
         <div class="relative group">
-          <div class="absolute -left-[25px] sm:-left-[41px] top-1.5 w-4 h-4 rounded-full bg-slate-300 border-4 border-white shadow"></div>
+          <div class="absolute -left-[25px] sm:-left-[41px] top-1.5 w-4 h-4 rounded-full bg-slate-700 border-4 border-[#0B0F17]"></div>
           
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-7 shadow-card hover:border-slate-300 transition-all">
-            <div class="flex flex-wrap items-baseline justify-between gap-2 pb-3 border-b border-slate-100">
+          <div class="glass-card rounded-2xl p-6 sm:p-7 shadow-dark-card hover:border-slate-700 transition-all">
+            <div class="flex flex-wrap items-baseline justify-between gap-2 pb-3 border-b border-white/[0.06]">
               <div>
-                <h3 class="text-lg sm:text-xl font-bold text-slate-900">Web Developer</h3>
-                <div class="text-sm font-medium text-slate-600">LIT Solution</div>
+                <h3 class="text-lg sm:text-xl font-bold text-white">Web Developer</h3>
+                <div class="text-sm font-medium text-slate-400">LIT Solution</div>
               </div>
-              <div class="font-mono text-xs text-slate-500 bg-slate-50 px-3 py-1 rounded-md border border-slate-200">
-                Jan 2014 – Jan 2015
+              <div class="font-mono text-xs text-slate-400 bg-slate-900/90 px-3 py-1 rounded-md border border-white/10">
+                January 2014 – January 2015
               </div>
             </div>
 
-            <ul class="mt-4 space-y-2 text-sm text-slate-700 leading-relaxed list-disc list-outside pl-4">
-              <li>Engineered responsive web applications for 15+ clients, autonomously handling full-cycle delivery from requirement gathering to production deployment.</li>
-              <li>Built an end-to-end School Management System covering admissions, student attendance, examination results, and fee accounts.</li>
-              <li>Enhanced site performance, speed, and indexing using Google Webmaster Tools, capturing measurable organic search ranking improvements.</li>
+            <ul class="mt-4 space-y-2 text-sm text-slate-300 leading-relaxed list-disc list-outside pl-4">
+              <li>Developed responsive web applications for 15+ clients, independently managing full-cycle development from requirements to deployment.</li>
+              <li>Built a School Management Software in PHP5 covering admissions, attendance, results, and fee management modules.</li>
+              <li>Managed WordPress installations, theme customization, and plugin integrations for multiple client projects.</li>
+              <li>Improved website load speed and SEO rankings using Google Webmaster Tools, achieving measurable organic search gains for clients.</li>
             </ul>
           </div>
         </div>
 
-        <!-- Experience 6: Management Trainee (IT Sales) - AuroIN LLC -->
+        <!-- Experience 6: Management Trainee - AuroIN LLC -->
         <div class="relative group">
-          <div class="absolute -left-[25px] sm:-left-[41px] top-1.5 w-4 h-4 rounded-full bg-slate-200 border-4 border-white shadow"></div>
+          <div class="absolute -left-[25px] sm:-left-[41px] top-1.5 w-4 h-4 rounded-full bg-slate-800 border-4 border-[#0B0F17]"></div>
           
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-7 shadow-card hover:border-slate-300 transition-all">
-            <div class="flex flex-wrap items-baseline justify-between gap-2 pb-3 border-b border-slate-100">
+          <div class="glass-card rounded-2xl p-6 sm:p-7 shadow-dark-card hover:border-slate-700 transition-all">
+            <div class="flex flex-wrap items-baseline justify-between gap-2 pb-3 border-b border-white/[0.06]">
               <div>
-                <h3 class="text-base sm:text-lg font-bold text-slate-900">Management Trainee (IT Sales)</h3>
-                <div class="text-sm font-medium text-slate-600">AuroIN LLC</div>
+                <h3 class="text-base sm:text-lg font-bold text-white">Management Trainee (IT Sales)</h3>
+                <div class="text-sm font-medium text-slate-400">AuroIN LLC</div>
               </div>
-              <div class="font-mono text-xs text-slate-500 bg-slate-50 px-3 py-1 rounded-md border border-slate-200">
-                Aug 2013 – Jan 2014
+              <div class="font-mono text-xs text-slate-400 bg-slate-900/90 px-3 py-1 rounded-md border border-white/10">
+                August 2013 – January 2014
               </div>
             </div>
 
-            <p class="mt-3 text-sm text-slate-700">
-              Managed international IT service communications, CRM data management, and B2B tech sales outreach targeting US and European client markets.
+            <p class="mt-3 text-sm text-slate-300">
+              Handled client follow-ups, business communications, and CRM data management. Managed sales outreach targeting US and European markets for IT services and digital solutions.
             </p>
           </div>
         </div>
@@ -759,226 +809,226 @@
       </div>
     </section>
 
-    <!-- Section: Featured Projects Showcase -->
+    <!-- Section 04: Featured Architectural Projects -->
     <section id="projects" class="scroll-mt-24">
       <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
         <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded-lg bg-brand-50 border border-brand-200 text-brand-600 flex items-center justify-center font-mono font-bold text-xs">
+          <div class="w-8 h-8 rounded-lg bg-emerald-950/60 border border-emerald-800/80 text-emerald-400 flex items-center justify-center font-mono font-bold text-xs shadow-inner">
             04
           </div>
           <div>
-            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Architectural Projects & SaaS</h2>
-            <p class="text-xs text-slate-500 font-mono">Real-world AI platforms and enterprise software delivered to production</p>
+            <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Architectural Projects & SaaS</h2>
+            <p class="text-xs text-slate-400 font-mono">Production systems, AI platforms, and enterprise solutions</p>
           </div>
         </div>
 
         <!-- Filter Buttons -->
-        <div class="no-print flex items-center gap-1.5 bg-white p-1 rounded-xl border border-slate-200 text-xs font-medium">
-          <button onclick="filterProjects('all', this)" class="project-filter-btn px-3 py-1 rounded-lg bg-slate-900 text-white font-mono transition-all">All (5)</button>
-          <button onclick="filterProjects('ai', this)" class="project-filter-btn px-3 py-1 rounded-lg text-slate-600 hover:text-slate-900 font-mono transition-all">Agentic AI</button>
-          <button onclick="filterProjects('backend', this)" class="project-filter-btn px-3 py-1 rounded-lg text-slate-600 hover:text-slate-900 font-mono transition-all">Fintech & Enterprise</button>
+        <div class="no-print flex items-center gap-1.5 bg-slate-900/90 p-1 rounded-xl border border-white/10 text-xs font-medium">
+          <button onclick="filterProjects('all', this)" class="project-filter-btn px-3 py-1 rounded-lg bg-emerald-500 text-slate-950 font-bold font-mono transition-all">All (5)</button>
+          <button onclick="filterProjects('ai', this)" class="project-filter-btn px-3 py-1 rounded-lg text-slate-400 hover:text-white font-mono transition-all">Agentic AI</button>
+          <button onclick="filterProjects('backend', this)" class="project-filter-btn px-3 py-1 rounded-lg text-slate-400 hover:text-white font-mono transition-all">Fintech & Enterprise</button>
         </div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="projectsContainer">
         
         <!-- Project 1: Takafulik -->
-        <div class="project-card bg-white rounded-2xl border border-slate-200 p-6 sm:p-7 shadow-card hover:border-brand-300 hover:shadow-hover transition-all flex flex-col justify-between" data-category="ai">
+        <div class="project-card glass-card rounded-2xl p-6 sm:p-7 shadow-dark-card hover:border-emerald-500/40 hover:shadow-glow-emerald transition-all flex flex-col justify-between" data-category="ai">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium bg-emerald-950/80 text-emerald-300 border border-emerald-800/70">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                 In Production
               </span>
-              <span class="text-xs font-mono text-slate-400">Enterprise SaaS</span>
+              <span class="text-xs font-mono text-slate-500">Enterprise SaaS</span>
             </div>
 
             <div>
-              <h3 class="text-xl font-bold text-slate-900 tracking-tight">Takafulik</h3>
-              <p class="text-sm font-medium text-brand-600 mt-0.5">AI-Powered Islamic Insurance SaaS Platform</p>
+              <h3 class="text-xl font-bold text-white tracking-tight">Takafulik</h3>
+              <p class="text-sm font-medium text-emerald-400 mt-0.5">AI-Powered Islamic Insurance SaaS Platform</p>
             </div>
 
-            <ul class="text-xs sm:text-sm text-slate-600 space-y-2 list-disc list-outside pl-4 leading-relaxed">
-              <li><strong>Agentic Reasoning Workflows:</strong> Engineered multi-step policy reasoning and claim processing state machines built with LangGraph.</li>
-              <li><strong>Grounded RAG Pipeline:</strong> Proprietary vector retrieval over Sharia-compliant Takaful legal documents ensuring zero-hallucination answers.</li>
-              <li><strong>Multi-Tenant Django:</strong> Built isolated tenant architecture supporting multiple insurance operators from a single secure codebase.</li>
-              <li><strong>Automated Cloud Infrastructure:</strong> Deployed on GCP with Nginx, Gunicorn, and automated GitHub CI/CD testing pipelines.</li>
+            <ul class="text-xs sm:text-sm text-slate-300 space-y-2 list-disc list-outside pl-4 leading-relaxed">
+              <li><strong class="text-white">Agentic AI Workflows:</strong> Built with LangGraph for multi-step policy reasoning and claim assistance.</li>
+              <li><strong class="text-white">Grounded RAG Pipeline:</strong> Built over proprietary Takaful documents for grounded, compliant AI responses.</li>
+              <li><strong class="text-white">Multi-Tenant Django:</strong> Scalable architecture supporting multiple operators from a single codebase.</li>
+              <li><strong class="text-white">Cloud Deployment:</strong> Full deployment on GCP with automated CI/CD pipeline via GitHub.</li>
             </ul>
           </div>
 
-          <div class="mt-6 pt-4 border-t border-slate-100 space-y-3">
-            <div class="text-[11px] font-mono text-slate-400 uppercase tracking-wider font-semibold">Technologies Used</div>
+          <div class="mt-6 pt-4 border-t border-white/[0.06] space-y-3">
+            <div class="text-[11px] font-mono text-slate-500 uppercase tracking-wider font-semibold">Tech Stack</div>
             <div class="flex flex-wrap gap-1.5">
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-purple-50 text-purple-700 rounded border border-purple-200">LangGraph</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-blue-50 text-blue-700 rounded border border-blue-200">Python-Django</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-100 text-slate-700 rounded border border-slate-200">RAG Pipeline</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-100 text-slate-700 rounded border border-slate-200">PostgreSQL</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-100 text-slate-700 rounded border border-slate-200">GCP</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-100 text-slate-700 rounded border border-slate-200">Tailwind CSS</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-purple-950/60 text-purple-300 rounded border border-purple-800/50">LangGraph</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-cyan-950/60 text-cyan-300 rounded border border-cyan-800/50">Python-Django</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-800 text-slate-300 rounded border border-white/10">RAG</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-800 text-slate-300 rounded border border-white/10">PostgreSQL</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-800 text-slate-300 rounded border border-white/10">GCP</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-800 text-slate-300 rounded border border-white/10">Tailwind CSS</span>
             </div>
           </div>
         </div>
 
         <!-- Project 2: Zymedics -->
-        <div class="project-card bg-white rounded-2xl border border-slate-200 p-6 sm:p-7 shadow-card hover:border-brand-300 hover:shadow-hover transition-all flex flex-col justify-between" data-category="ai">
+        <div class="project-card glass-card rounded-2xl p-6 sm:p-7 shadow-dark-card hover:border-emerald-500/40 hover:shadow-glow-emerald transition-all flex flex-col justify-between" data-category="ai">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium bg-blue-50 text-blue-700 border border-blue-200">
-                <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium bg-blue-950/80 text-blue-300 border border-blue-800/70">
+                <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
                 Healthcare AI
               </span>
-              <span class="text-xs font-mono text-slate-400">Multi-Agent</span>
+              <span class="text-xs font-mono text-slate-500">Multi-Agent</span>
             </div>
 
             <div>
-              <h3 class="text-xl font-bold text-slate-900 tracking-tight">Zymedics</h3>
-              <p class="text-sm font-medium text-brand-600 mt-0.5">AI Health & Medical Assistant Platform</p>
+              <h3 class="text-xl font-bold text-white tracking-tight">Zymedics</h3>
+              <p class="text-sm font-medium text-emerald-400 mt-0.5">AI Health & Medical Assistant Platform</p>
             </div>
 
-            <ul class="text-xs sm:text-sm text-slate-600 space-y-2 list-disc list-outside pl-4 leading-relaxed">
-              <li><strong>Multi-Agent Orchestration:</strong> Coordinated specialized LangGraph sub-agents (patient triage, symptom evaluation, medical history summarizer) running in synchronized pipelines.</li>
-              <li><strong>Clinical Document Parser:</strong> High-precision LLM parser extracting lab test markers, diagnostic reports, and medical prescription tables.</li>
-              <li><strong>Role-Based Access (RBAC):</strong> Strict permission separation for patients, licensed physicians, and hospital administration.</li>
-              <li><strong>Clinical Guardrails:</strong> Implemented defensive prompt engineering with programmatic fallbacks for medically safe outputs.</li>
+            <ul class="text-xs sm:text-sm text-slate-300 space-y-2 list-disc list-outside pl-4 leading-relaxed">
+              <li><strong class="text-white">Multi-Agent Architecture:</strong> LangGraph orchestration connecting triage, symptom analysis, and history agents.</li>
+              <li><strong class="text-white">Document Parsing:</strong> LLM-powered parser extracting clinical lab reports, prescriptions, and summaries.</li>
+              <li><strong class="text-white">Secure Django Backend:</strong> Strict role-based access for patients, doctors, and hospital admins.</li>
+              <li><strong class="text-white">Medical Prompt Guardrails:</strong> Prompt engineering with fallback mechanisms for safe, medically-grounded responses.</li>
             </ul>
           </div>
 
-          <div class="mt-6 pt-4 border-t border-slate-100 space-y-3">
-            <div class="text-[11px] font-mono text-slate-400 uppercase tracking-wider font-semibold">Technologies Used</div>
+          <div class="mt-6 pt-4 border-t border-white/[0.06] space-y-3">
+            <div class="text-[11px] font-mono text-slate-500 uppercase tracking-wider font-semibold">Tech Stack</div>
             <div class="flex flex-wrap gap-1.5">
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-purple-50 text-purple-700 rounded border border-purple-200">LangGraph</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-blue-50 text-blue-700 rounded border border-blue-200">Django REST</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-100 text-slate-700 rounded border border-slate-200">Docker</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-100 text-slate-700 rounded border border-slate-200">GCP</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-100 text-slate-700 rounded border border-slate-200">Prompt Guardrails</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-purple-950/60 text-purple-300 rounded border border-purple-800/50">LangGraph</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-cyan-950/60 text-cyan-300 rounded border border-cyan-800/50">Django REST</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-800 text-slate-300 rounded border border-white/10">Docker</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-800 text-slate-300 rounded border border-white/10">GCP</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-800 text-slate-300 rounded border border-white/10">Prompt Guardrails</span>
             </div>
           </div>
         </div>
 
         <!-- Project 3: Pluxsor -->
-        <div class="project-card bg-white rounded-2xl border border-slate-200 p-6 sm:p-7 shadow-card hover:border-brand-300 hover:shadow-hover transition-all flex flex-col justify-between" data-category="ai">
+        <div class="project-card glass-card rounded-2xl p-6 sm:p-7 shadow-dark-card hover:border-emerald-500/40 hover:shadow-glow-emerald transition-all flex flex-col justify-between" data-category="ai">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium bg-amber-50 text-amber-700 border border-amber-200">
-                <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium bg-amber-950/80 text-amber-300 border border-amber-800/70">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
                 Automation SaaS
               </span>
-              <span class="text-xs font-mono text-slate-400">HTMX + LangGraph</span>
+              <span class="text-xs font-mono text-slate-500">HTMX + LangGraph</span>
             </div>
 
             <div>
-              <h3 class="text-xl font-bold text-slate-900 tracking-tight">Pluxsor</h3>
-              <p class="text-sm font-medium text-brand-600 mt-0.5">AI-Powered Workflow Automation SaaS</p>
+              <h3 class="text-xl font-bold text-white tracking-tight">Pluxsor</h3>
+              <p class="text-sm font-medium text-emerald-400 mt-0.5">AI-Powered SaaS Web Application</p>
             </div>
 
-            <ul class="text-xs sm:text-sm text-slate-600 space-y-2 list-disc list-outside pl-4 leading-relaxed">
-              <li><strong>Agent Automation:</strong> Dynamic user-configured task execution using LangGraph for multi-step data transformations.</li>
-              <li><strong>SaaS Subscription Tiers:</strong> Metered API usage limits, Stripe payment webhooks, and tiered permissioning in Django.</li>
-              <li><strong>Reactive HTMX Architecture:</strong> Delivered dynamic SPA-like UI reactivity without heavy client JavaScript bundles.</li>
-              <li><strong>Production GCP Stack:</strong> Nginx reverse proxy, Gunicorn WSGI workers, automated SSL renew scripts.</li>
+            <ul class="text-xs sm:text-sm text-slate-300 space-y-2 list-disc list-outside pl-4 leading-relaxed">
+              <li><strong class="text-white">AI Agent Integration:</strong> Configured LangGraph for automated task workflows and data transformations.</li>
+              <li><strong class="text-white">Subscription Management:</strong> Django-based tiered pricing, usage quotas, and account limits.</li>
+              <li><strong class="text-white">HTMX Reactive UI:</strong> Lightning-fast reactive frontend without bloated client-side JS bundles.</li>
+              <li><strong class="text-white">Automated GCP Setup:</strong> Nginx/Gunicorn reverse proxy with automated SSL configuration.</li>
             </ul>
           </div>
 
-          <div class="mt-6 pt-4 border-t border-slate-100 space-y-3">
-            <div class="text-[11px] font-mono text-slate-400 uppercase tracking-wider font-semibold">Technologies Used</div>
+          <div class="mt-6 pt-4 border-t border-white/[0.06] space-y-3">
+            <div class="text-[11px] font-mono text-slate-500 uppercase tracking-wider font-semibold">Tech Stack</div>
             <div class="flex flex-wrap gap-1.5">
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-purple-50 text-purple-700 rounded border border-purple-200">LangGraph</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-blue-50 text-blue-700 rounded border border-blue-200">Python-Django</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-100 text-slate-700 rounded border border-slate-200">HTMX</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-100 text-slate-700 rounded border border-slate-200">Tailwind CSS</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-100 text-slate-700 rounded border border-slate-200">GCP</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-purple-950/60 text-purple-300 rounded border border-purple-800/50">LangGraph</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-cyan-950/60 text-cyan-300 rounded border border-cyan-800/50">Python-Django</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-800 text-slate-300 rounded border border-white/10">HTMX</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-800 text-slate-300 rounded border border-white/10">Tailwind CSS</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-800 text-slate-300 rounded border border-white/10">GCP</span>
             </div>
           </div>
         </div>
 
         <!-- Project 4: EiCoins -->
-        <div class="project-card bg-white rounded-2xl border border-slate-200 p-6 sm:p-7 shadow-card hover:border-brand-300 hover:shadow-hover transition-all flex flex-col justify-between" data-category="backend">
+        <div class="project-card glass-card rounded-2xl p-6 sm:p-7 shadow-dark-card hover:border-emerald-500/40 hover:shadow-glow-emerald transition-all flex flex-col justify-between" data-category="backend">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium bg-indigo-50 text-indigo-700 border border-indigo-200">
-                <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium bg-indigo-950/80 text-indigo-300 border border-indigo-800/70">
+                <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
                 Fintech Platform
               </span>
-              <span class="text-xs font-mono text-slate-400">Crypto WebApp</span>
+              <span class="text-xs font-mono text-slate-500">Crypto WebApp</span>
             </div>
 
             <div>
-              <h3 class="text-xl font-bold text-slate-900 tracking-tight">EiCoins</h3>
-              <p class="text-sm font-medium text-brand-600 mt-0.5">Crypto Fintech Web Application</p>
+              <h3 class="text-xl font-bold text-white tracking-tight">EiCoins</h3>
+              <p class="text-sm font-medium text-emerald-400 mt-0.5">Crypto Fintech Web Application</p>
             </div>
 
-            <ul class="text-xs sm:text-sm text-slate-600 space-y-2 list-disc list-outside pl-4 leading-relaxed">
-              <li><strong>Secure Wallet & Ledger Backend:</strong> Django REST API engine with cryptographic verification, double-entry ledger logic, and transaction auditing.</li>
-              <li><strong>Real-time Dashboard:</strong> Interactive portfolio tracking, valuation updates, and historical trade charts powered by React.</li>
-              <li><strong>Serverless Data Sync:</strong> Supabase integration for instant client notifications and synchronized transactions.</li>
-              <li><strong>Modular Django Design:</strong> Decoupled domain services separating core accounting from presentation endpoints.</li>
+            <ul class="text-xs sm:text-sm text-slate-300 space-y-2 list-disc list-outside pl-4 leading-relaxed">
+              <li><strong class="text-white">Secure Ledger Backend:</strong> Django REST API backend with cryptographically secure wallet and transaction modules.</li>
+              <li><strong class="text-white">Real-Time Dashboard:</strong> Real-time portfolio tracking and valuation dashboard with React frontend.</li>
+              <li><strong class="text-white">Serverless Sync:</strong> Supabase integration for scalable, serverless data management.</li>
+              <li><strong class="text-white">Clean Architecture:</strong> Decoupled domain services separating core accounting from presentation endpoints.</li>
             </ul>
           </div>
 
-          <div class="mt-6 pt-4 border-t border-slate-100 space-y-3">
-            <div class="text-[11px] font-mono text-slate-400 uppercase tracking-wider font-semibold">Technologies Used</div>
+          <div class="mt-6 pt-4 border-t border-white/[0.06] space-y-3">
+            <div class="text-[11px] font-mono text-slate-500 uppercase tracking-wider font-semibold">Tech Stack</div>
             <div class="flex flex-wrap gap-1.5">
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-blue-50 text-blue-700 rounded border border-blue-200">Python-Django</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-100 text-slate-700 rounded border border-slate-200">React</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-100 text-slate-700 rounded border border-slate-200">Supabase</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-100 text-slate-700 rounded border border-slate-200">PostgreSQL</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-100 text-slate-700 rounded border border-slate-200">GCP</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-cyan-950/60 text-cyan-300 rounded border border-cyan-800/50">Python-Django</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-800 text-slate-300 rounded border border-white/10">React</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-800 text-slate-300 rounded border border-white/10">Supabase</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-800 text-slate-300 rounded border border-white/10">PostgreSQL</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-800 text-slate-300 rounded border border-white/10">GCP</span>
             </div>
           </div>
         </div>
 
         <!-- Project 5: Legal Document Abstraction Tool (PwC) -->
-        <div class="project-card md:col-span-2 bg-white rounded-2xl border border-slate-200 p-6 sm:p-7 shadow-card hover:border-brand-300 hover:shadow-hover transition-all flex flex-col justify-between" data-category="backend">
+        <div class="project-card md:col-span-2 glass-card rounded-2xl p-6 sm:p-8 shadow-dark-card hover:border-emerald-500/40 hover:shadow-glow-emerald transition-all flex flex-col justify-between" data-category="backend">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium bg-emerald-50 text-emerald-800 border border-emerald-200">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium bg-emerald-950/80 text-emerald-300 border border-emerald-800/70">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                 Fortune 500 Engagement — PwC
               </span>
-              <span class="text-xs font-mono text-slate-400">NLP & Contract Abstraction</span>
+              <span class="text-xs font-mono text-slate-500">NLP & Contract Abstraction</span>
             </div>
 
             <div>
-              <h3 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Legal Document Abstraction Tool</h3>
-              <p class="text-sm font-medium text-brand-600 mt-0.5">Enterprise Contract Extraction & Clause Intelligence Engine</p>
+              <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Legal Document Abstraction Tool</h3>
+              <p class="text-sm font-medium text-emerald-400 mt-0.5">Enterprise Contract Extraction & Clause Intelligence Engine</p>
             </div>
 
-            <p class="text-sm text-slate-700 leading-relaxed">
-              Engineered an AI-powered legal document extraction engine deployed for a prestigious <strong class="text-slate-900">Fortune 500 engagement with PwC</strong> (via Neukelp LLP / IIT Bhubaneswar TBI). The system automated parsing of dense legal PDF contracts to pull out key structured attributes (parties, dates, indemnification clauses, governing laws, and payment terms).
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Built an AI-powered document abstraction system to automate the analysis of large volumes of legal PDF contracts for a <strong class="text-white">Fortune 500 client engagement (PwC)</strong>. The NLP pipeline parsed PDFs, extracted structured data (clauses, parties, dates, monetary amounts, obligations), and generated concise human-readable summaries using NLTK. A Django backend managed document storage, search indexing, and REST API delivery. Also trained and evaluated Named Entity Recognition (NER) models on legal text corpora using spaCy.
             </p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-100">
-                <div class="font-semibold text-xs text-slate-900 mb-1 flex items-center gap-1.5">
-                  <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
-                  <span>Key Impact</span>
+              <div class="p-4 rounded-xl bg-slate-900/90 border border-white/[0.06]">
+                <div class="font-semibold text-xs text-white mb-1 flex items-center gap-1.5">
+                  <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+                  <span>Measurable Impact</span>
                 </div>
-                <p class="text-xs text-slate-600">
-                  Reduced manual document inspection time by over 70%, allowing enterprise legal auditors to review high-volume contracts at previously unachievable scale.
+                <p class="text-xs text-slate-400">
+                  Reduced manual legal document review time significantly, enabling the client's legal team to process and analyze large contract volumes at scale.
                 </p>
               </div>
 
-              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-100">
-                <div class="font-semibold text-xs text-slate-900 mb-1 flex items-center gap-1.5">
-                  <i data-lucide="code" class="w-3.5 h-3.5 text-brand-600"></i>
-                  <span>Architecture</span>
+              <div class="p-4 rounded-xl bg-slate-900/90 border border-white/[0.06]">
+                <div class="font-semibold text-xs text-white mb-1 flex items-center gap-1.5">
+                  <i data-lucide="code" class="w-3.5 h-3.5 text-cyan-400"></i>
+                  <span>Core Architecture</span>
                 </div>
-                <p class="text-xs text-slate-600">
-                  Python PDF stream extractor (PyPDF2/pdfminer) feeding into customized spaCy/NLTK NER pipelines, with Django REST endpoints providing indexed search.
+                <p class="text-xs text-slate-400">
+                  PyPDF2/pdfminer stream ingestion, custom-tuned spaCy/NLTK NER pipelines, and Django REST endpoints providing fast query retrieval.
                 </p>
               </div>
             </div>
           </div>
 
-          <div class="mt-6 pt-4 border-t border-slate-100 space-y-3">
-            <div class="text-[11px] font-mono text-slate-400 uppercase tracking-wider font-semibold">Core Technologies</div>
+          <div class="mt-6 pt-4 border-t border-white/[0.06] space-y-3">
+            <div class="text-[11px] font-mono text-slate-500 uppercase tracking-wider font-semibold">Tech Stack</div>
             <div class="flex flex-wrap gap-1.5">
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-blue-50 text-blue-700 rounded border border-blue-200">Python-Django</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-purple-50 text-purple-700 rounded border border-purple-200">spaCy (Custom NER)</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-100 text-slate-700 rounded border border-slate-200">NLTK</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-100 text-slate-700 rounded border border-slate-200">PyPDF2 / pdfminer</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-100 text-slate-700 rounded border border-slate-200">PostgreSQL</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-100 text-slate-700 rounded border border-slate-200">RESTful APIs</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-cyan-950/60 text-cyan-300 rounded border border-cyan-800/50">Python-Django</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-purple-950/60 text-purple-300 rounded border border-purple-800/50">spaCy (NER)</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-800 text-slate-300 rounded border border-white/10">NLTK</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-800 text-slate-300 rounded border border-white/10">PyPDF2 / pdfminer</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-800 text-slate-300 rounded border border-white/10">PostgreSQL</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-800 text-slate-300 rounded border border-white/10">REST APIs</span>
             </div>
           </div>
         </div>
@@ -986,89 +1036,89 @@
       </div>
     </section>
 
-    <!-- Section: Education & Credentials -->
+    <!-- Section 05: Academic Foundations -->
     <section id="education" class="scroll-mt-24">
       <div class="flex items-center gap-3 mb-6">
-        <div class="w-8 h-8 rounded-lg bg-brand-50 border border-brand-200 text-brand-600 flex items-center justify-center font-mono font-bold text-xs">
+        <div class="w-8 h-8 rounded-lg bg-emerald-950/60 border border-emerald-800/80 text-emerald-400 flex items-center justify-center font-mono font-bold text-xs shadow-inner">
           05
         </div>
         <div>
-          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Academic Foundations</h2>
-          <p class="text-xs text-slate-500 font-mono">Formal education in engineering & sciences</p>
+          <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Academic Foundations</h2>
+          <p class="text-xs text-slate-400 font-mono">Formal education in engineering & sciences</p>
         </div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
         <!-- Degree 1 -->
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-card flex flex-col justify-between">
+        <div class="glass-card rounded-2xl p-6 shadow-dark-card flex flex-col justify-between hover:border-slate-700 transition-all">
           <div class="space-y-2">
-            <span class="inline-block font-mono text-[11px] font-semibold text-brand-700 bg-brand-50 px-2 py-0.5 rounded border border-brand-200">
+            <span class="inline-block font-mono text-[11px] font-semibold text-emerald-300 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800/70">
               Bachelor of Engineering (B.E.)
             </span>
-            <h3 class="font-bold text-slate-900 text-base leading-snug">Electronics & Communication Engineering</h3>
-            <p class="text-xs text-slate-600">Hi-Tech College of Engineering (BPUT)</p>
+            <h3 class="font-bold text-white text-base leading-snug">Electronics & Communication Engineering</h3>
+            <p class="text-xs text-slate-400">Hi-Tech College of Engineering (BPUT)</p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-500">
+          <div class="mt-5 pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono text-slate-500">
             <span>Duration</span>
-            <span class="font-semibold text-slate-700">2009 – 2013</span>
+            <span class="font-semibold text-slate-300">2009 – 2013</span>
           </div>
         </div>
 
         <!-- Degree 2 -->
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-card flex flex-col justify-between">
+        <div class="glass-card rounded-2xl p-6 shadow-dark-card flex flex-col justify-between hover:border-slate-700 transition-all">
           <div class="space-y-2">
-            <span class="inline-block font-mono text-[11px] font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+            <span class="inline-block font-mono text-[11px] font-semibold text-slate-300 bg-slate-800 px-2 py-0.5 rounded border border-white/10">
               Senior Secondary (XII)
             </span>
-            <h3 class="font-bold text-slate-900 text-base leading-snug">Science (CBSE)</h3>
-            <p class="text-xs text-slate-600">Kendriya Vidyalaya, HPCL Jagiroad, Assam</p>
+            <h3 class="font-bold text-white text-base leading-snug">Science (CBSE)</h3>
+            <p class="text-xs text-slate-400">Kendriya Vidyalaya, HPCL Jagiroad, Assam</p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-500">
+          <div class="mt-5 pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono text-slate-500">
             <span>Year of Completion</span>
-            <span class="font-semibold text-slate-700">2008</span>
+            <span class="font-semibold text-slate-300">2008</span>
           </div>
         </div>
 
         <!-- Degree 3 -->
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-card flex flex-col justify-between">
+        <div class="glass-card rounded-2xl p-6 shadow-dark-card flex flex-col justify-between hover:border-slate-700 transition-all">
           <div class="space-y-2">
-            <span class="inline-block font-mono text-[11px] font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+            <span class="inline-block font-mono text-[11px] font-semibold text-slate-300 bg-slate-800 px-2 py-0.5 rounded border border-white/10">
               Secondary School (X)
             </span>
-            <h3 class="font-bold text-slate-900 text-base leading-snug">All India Secondary Exam (CBSE)</h3>
-            <p class="text-xs text-slate-600">Kendriya Vidyalaya, HPCL Jagiroad, Assam</p>
+            <h3 class="font-bold text-white text-base leading-snug">All India Secondary Exam (CBSE)</h3>
+            <p class="text-xs text-slate-400">Kendriya Vidyalaya, HPCL Jagiroad, Assam</p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-500">
+          <div class="mt-5 pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono text-slate-500">
             <span>Year of Completion</span>
-            <span class="font-semibold text-slate-700">2006</span>
+            <span class="font-semibold text-slate-300">2006</span>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- Quick Callout Banner / Open to Discussions -->
-    <section class="no-print bg-gradient-to-r from-slate-900 via-slate-850 to-brand-950 rounded-2xl p-8 sm:p-10 text-white shadow-card relative overflow-hidden">
-      <!-- Decorative background orb -->
-      <div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-brand-500/20 blur-3xl pointer-events-none"></div>
+    <!-- Professional Call to Action Banner -->
+    <section class="no-print relative rounded-2xl p-8 sm:p-10 border border-emerald-500/30 shadow-glow-emerald overflow-hidden bg-gradient-to-r from-[#0F172A] via-[#111C30] to-[#0A101C]">
+      <!-- Ambient light effect inside banner -->
+      <div class="absolute -right-16 -top-16 w-72 h-72 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none"></div>
 
       <div class="relative z-10 max-w-2xl space-y-4">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-brand-300 font-mono text-xs border border-white/10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 text-emerald-400 font-mono text-xs border border-emerald-800/80">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>Available for New Challenges</span>
+          <span>Ready for High-Impact Roles</span>
         </div>
-        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Looking for an experienced Tech Lead or Senior Backend/AI Developer?</h2>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Looking for a Senior Tech Lead or Backend/AI Systems Architect?</h2>
         <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-          I specialize in taking complex SaaS and AI requirements from architecture whiteboard to production deployment. Let's discuss your engineering goals.
+          I bridge complex enterprise requirements with resilient backend services, multi-agent AI workflows, and zero-downtime cloud deployments. Let's build something exceptional together.
         </p>
         <div class="pt-2 flex flex-wrap gap-3">
-          <a href="mailto:sangramz@hotmail.com?subject=Senior%20Developer%20Inquiry" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-brand-600 hover:bg-brand-500 text-white font-semibold text-xs uppercase tracking-wider transition-all shadow-sm">
+          <a href="mailto:sangramz@hotmail.com?subject=Senior%20Developer%20Inquiry" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-all shadow-glow-emerald">
             <i data-lucide="mail" class="w-4 h-4"></i>
             <span>Get in Touch Directly</span>
           </a>
-          <a href="assets/resume.pdf" download="Sangram_Keshari_Sundaray_Resume.pdf" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold text-xs uppercase tracking-wider transition-all">
-            <i data-lucide="download" class="w-4 h-4"></i>
+          <a href="assets/resume.pdf" download="Sangram_Keshari_Sundaray_Resume.pdf" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-slate-900 border border-white/10 hover:bg-slate-800 text-white font-semibold text-xs uppercase tracking-wider transition-all">
+            <i data-lucide="download" class="w-4 h-4 text-emerald-400"></i>
             <span>Download PDF CV</span>
           </a>
         </div>
@@ -1078,23 +1128,24 @@
   </main>
 
   <!-- Footer -->
-  <footer class="no-print bg-white border-t border-slate-200 mt-12 py-8 text-xs text-slate-500 font-mono">
+  <footer class="no-print bg-[#080C14] border-t border-white/[0.06] mt-12 py-8 text-xs text-slate-400 font-mono">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-2">
-        <span class="font-bold text-slate-900">Sangram Keshari Sundaray</span>
-        <span>— Hosted on GitHub Pages</span>
+        <span class="font-bold text-slate-200">Sangram Keshari Sundaray</span>
+        <span class="text-slate-600">—</span>
+        <span>Hosted on GitHub Pages</span>
       </div>
       <div class="flex items-center gap-6">
-        <a href="#summary" class="hover:text-brand-600 transition-colors">Back to Top ↑</a>
-        <a href="https://sangramz.github.io" class="hover:text-brand-600 transition-colors">sangramz.github.io</a>
-        <a href="mailto:sangramz@hotmail.com" class="hover:text-brand-600 transition-colors">sangramz@hotmail.com</a>
+        <a href="#summary" class="hover:text-emerald-400 transition-colors">Back to Top ↑</a>
+        <a href="https://sangramz.github.io" class="hover:text-emerald-400 transition-colors">sangramz.github.io</a>
+        <a href="mailto:sangramz@hotmail.com" class="hover:text-emerald-400 transition-colors">sangramz@hotmail.com</a>
       </div>
     </div>
   </footer>
 
   <!-- Toast Notification Container for Clipboard -->
   <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-16 opacity-0 transition-all duration-300 pointer-events-none">
-    <div class="bg-slate-900 text-white px-4 py-2.5 rounded-xl shadow-lg border border-slate-700 flex items-center gap-2 text-xs font-mono">
+    <div class="bg-slate-900/95 text-white px-4 py-2.5 rounded-xl shadow-2xl border border-emerald-500/40 flex items-center gap-2.5 text-xs font-mono">
       <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
       <span id="toastMessage">Copied to clipboard!</span>
     </div>
@@ -1111,7 +1162,6 @@
       mobileMenuBtn.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
       });
-      // Close menu when clicking any nav link
       mobileMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           mobileMenu.classList.add('hidden');
@@ -1119,7 +1169,7 @@
       });
     }
 
-    // Copy to Clipboard with Toast
+    // Copy to Clipboard with Visual Toast
     function copyToClipboard(text, btnElement) {
       navigator.clipboard.writeText(text).then(() => {
         const toast = document.getElementById('toast');
@@ -1127,10 +1177,9 @@
         toastMessage.textContent = `Copied: ${text}`;
         toast.classList.remove('translate-y-16', 'opacity-0');
         
-        // Visual indicator on icon
         if (btnElement) {
           const originalHTML = btnElement.innerHTML;
-          btnElement.innerHTML = `<i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i>`;
+          btnElement.innerHTML = `<i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i>`;
           lucide.createIcons();
           setTimeout(() => {
             btnElement.innerHTML = originalHTML;
@@ -1142,19 +1191,17 @@
           toast.classList.add('translate-y-16', 'opacity-0');
         }, 2600);
       }).catch(err => {
-        console.error('Failed to copy: ', err);
+        console.error('Failed to copy text: ', err);
       });
     }
 
-    // Project Category Filtering
+    // Interactive Project Filtering
     function filterProjects(category, btn) {
-      // Toggle button styles
       document.querySelectorAll('.project-filter-btn').forEach(b => {
-        b.className = 'project-filter-btn px-3 py-1 rounded-lg text-slate-600 hover:text-slate-900 font-mono transition-all';
+        b.className = 'project-filter-btn px-3 py-1 rounded-lg text-slate-400 hover:text-white font-mono transition-all';
       });
-      btn.className = 'project-filter-btn px-3 py-1 rounded-lg bg-slate-900 text-white font-mono transition-all';
+      btn.className = 'project-filter-btn px-3 py-1 rounded-lg bg-emerald-500 text-slate-950 font-bold font-mono transition-all';
 
-      // Filter cards
       const cards = document.querySelectorAll('.project-card');
       cards.forEach(card => {
         if (category === 'all' || card.dataset.category === category) {
