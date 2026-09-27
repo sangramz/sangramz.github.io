@@ -149,25 +149,336 @@
     @media (max-width: 640px) { .nav__links { display: none; } .timeline { padding-left: 1.5rem; } .timeline__item { padding-left: 1.5rem; } .timeline__dot { left: -1.5rem; } .footer__inner { flex-direction: column; align-items: flex-start; } }
   </style>
 </head>
-<body class="font-sans antialiased">
-  <header class="bg-ink text-paper">
-    <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 lg:px-10" aria-label="Primary navigation">
-      <a href="#top" class="font-mono text-xs tracking-[.18em] text-lime">SKS<span class="text-paper">/2026</span></a>
-      <div class="hidden items-center gap-8 text-xs font-semibold text-mist sm:flex"><a class="transition-colors hover:text-lime" href="#experience">Experience</a><a class="transition-colors hover:text-lime" href="#projects">Projects</a><a class="transition-colors hover:text-lime" href="#stack">Stack</a></div>
-      <a href="assets/resume.pdf" class="inline-flex items-center gap-2 border border-lime px-4 py-2.5 text-xs font-bold text-lime transition-colors hover:bg-lime hover:text-ink" download>Download PDF <span aria-hidden="true">↗</span></a>
-    </nav>
-    <div id="top" class="mx-auto max-w-6xl px-6 pb-20 pt-12 lg:px-10 lg:pb-28 lg:pt-24">
-      <div class="grid items-end gap-12 lg:grid-cols-[1fr_280px]"><div><p class="mb-7 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[.2em] text-lime"><span class="dot"></span> Available for meaningful problems</p><h1 class="max-w-4xl text-5xl font-extrabold leading-[.96] tracking-[-.06em] sm:text-7xl lg:text-[6.6rem]">Sangram K<br><span class="text-lime">Sundaray</span></h1><p class="mt-8 max-w-xl text-lg font-medium leading-8 text-mist">Tech Lead <span class="text-lime">—</span> AI &amp; Web Apps Development</p></div><div class="relative mx-auto w-52 sm:w-60 lg:mx-0 lg:w-full"><div class="absolute -inset-3 border border-line"></div><img src="assets/pic.jpeg" alt="Portrait of Sangram K Sundaray" class="relative aspect-square w-full object-cover grayscale-[20%]"><span class="absolute -bottom-3 -right-3 bg-lime px-3 py-2 font-mono text-[10px] font-medium text-ink">BHUBANESWAR / IN</span></div></div>
-      <div class="mt-16 grid gap-6 border-t border-line pt-6 text-sm text-mist sm:grid-cols-3"><a class="hover:text-lime" href="mailto:sangramz@hotmail.com">sangramz@hotmail.com</a><a class="hover:text-lime" href="tel:+919937826218">+91 99378 26218</a><span>Bhubaneswar, India</span></div>
+<body>
+<nav class="nav" id="nav" aria-label="Primary navigation">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="#top" class="nav__logo">SKS<span>/2026</span></a>
+      <div class="nav__links">
+        <a href="#about" class="nav__link">About</a>
+        <a href="#experience" class="nav__link">Experience</a>
+        <a href="#projects" class="nav__link">Projects</a>
+        <a href="#stack" class="nav__link">Stack</a>
+      </div>
+      <a href="assets/resume.pdf" class="nav__cta" download>
+        <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 12L3 7l1.4-1.4L7 8.2V1h2v7.2l2.6-2.6L13 7l-5 5zm-6 2h12v-2H2v2z"/></svg>
+        Download PDF
+      </a>
     </div>
-  </header>
-  <main>
-    <section class="grid-paper border-b border-[#d4d8d0] px-6 py-16 lg:px-10 lg:py-24"><div class="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[220px_1fr]"><p class="font-mono text-[11px] font-medium uppercase tracking-[.18em] text-[#5e665e]">01 / Profile</p><div><p class="max-w-3xl text-2xl font-semibold leading-snug tracking-[-.035em] sm:text-4xl">Senior Web &amp; AI Developer with 9+ years of experience engineering high-performance Django web applications and distributed systems.</p><p class="mt-7 max-w-2xl text-base leading-7 text-[#5e665e]">Specializes in building GenAI-powered features, prompt engineering, and LLM orchestration using LangChain and modern AI APIs. Adept at optimizing database performance, API efficiency, and leading end-to-end technical delivery.</p><div class="mt-8 flex flex-wrap gap-x-7 gap-y-3 font-mono text-xs text-[#5e665e]"><a href="https://linkedin.com/in/sangramz" target="_blank" rel="noreferrer">linkedin.com/in/sangramz ↗</a><a href="https://github.com/sangramz" target="_blank" rel="noreferrer">github.com/sangramz ↗</a><a href="https://sangramz.github.io" target="_blank" rel="noreferrer">sangramz.github.io ↗</a></div></div></div></section>
-    <section id="experience" class="bg-ink px-6 py-16 text-paper lg:px-10 lg:py-24"><div class="mx-auto max-w-6xl"><div class="mb-14 flex items-end justify-between border-b border-line pb-5"><p class="font-mono text-[11px] uppercase tracking-[.18em] text-lime">02 / Experience</p><span class="hidden font-mono text-[11px] text-mist sm:block">2013 — PRESENT</span></div><div class="ml-5 max-w-4xl border-l border-line pl-6 sm:ml-52 sm:pl-8"><article class="timeline-item relative mb-12"><div class="flex flex-col justify-between gap-2 sm:flex-row"><h2 class="text-xl font-bold">Tech Lead, Web Apps &amp; AI</h2><time class="font-mono text-xs text-lime">12/2024 — PRESENT</time></div><p class="mt-1 text-sm text-mist">Boldtribe Innovations Pvt Ltd · Bhubaneswar, India</p><p class="mt-4 max-w-2xl text-sm leading-6 text-mist">Utilize LangChain and Langraph to enhance AI-driven workflows; develop scalable Django web apps and APIs for media, healthcare, and insurance; implement prompt engineering via Gemini API.</p></article><article class="timeline-item relative mb-12"><div class="flex flex-col justify-between gap-2 sm:flex-row"><h2 class="text-xl font-bold">Software Developer, Web Apps</h2><time class="font-mono text-xs text-lime">03/2021 — 11/2024</time></div><p class="mt-1 text-sm text-mist">ConVoyage Systems Pvt Ltd · Bhubaneswar, India</p><p class="mt-4 max-w-2xl text-sm leading-6 text-mist">Prototyped DeFi using ERC721/ERC20 and launched NFT Network Maintenance for CIFDAQ via idApps Technologies.</p></article><article class="timeline-item relative mb-12"><div class="flex flex-col justify-between gap-2 sm:flex-row"><h2 class="text-xl font-bold">Software Developer, Freelance</h2><time class="font-mono text-xs text-lime">02/2018 — 02/2021</time></div><p class="mt-1 text-sm text-mist">Self-Employed · Remote</p><p class="mt-4 max-w-2xl text-sm leading-6 text-mist">Worked for Fortune 500 client PwC; developed a Document Abstraction Tool prototype using Python, Django, PostgreSQL, and NLTK. Built reseller systems and Ethereum/Metamask loyalty rewards.</p></article><article class="timeline-item relative mb-12"><div class="flex flex-col justify-between gap-2 sm:flex-row"><h2 class="text-xl font-bold">Full Stack Developer</h2><time class="font-mono text-xs text-lime">01/2015 — 01/2018</time></div><p class="mt-1 text-sm text-mist">SITSIndia · Bhubaneswar, India</p><p class="mt-4 max-w-2xl text-sm leading-6 text-mist">LAMP and Python-Django stack development, team management, and Google/Zoho Analytics optimization.</p></article><article class="timeline-item relative mb-12"><div class="flex flex-col justify-between gap-2 sm:flex-row"><h2 class="text-xl font-bold">Web Developer</h2><time class="font-mono text-xs text-lime">01/2014 — 01/2015</time></div><p class="mt-1 text-sm text-mist">LIT Solutions · Bhubaneswar, India</p><p class="mt-4 max-w-2xl text-sm leading-6 text-mist">Developed responsive web apps for 15 clients and school management software using PHP4.</p></article><article class="timeline-item relative"><div class="flex flex-col justify-between gap-2 sm:flex-row"><h2 class="text-xl font-bold">Management Trainee</h2><time class="font-mono text-xs text-lime">08/2013 — 01/2014</time></div><p class="mt-1 text-sm text-mist">AuroIN LLC</p><p class="mt-4 max-w-2xl text-sm leading-6 text-mist">US &amp; Europe sales operations.</p></article></div></div></section>
-    <section id="projects" class="px-6 py-16 lg:px-10 lg:py-24"><div class="mx-auto max-w-6xl"><div class="mb-10 flex items-end justify-between border-b border-[#cbd0c8] pb-5"><p class="font-mono text-[11px] uppercase tracking-[.18em] text-[#5e665e]">03 / Selected projects</p><span class="font-mono text-[11px] text-[#8a9188]">BUILDING IN PUBLIC</span></div><div class="grid gap-4 md:grid-cols-3"><article class="lift border border-[#cbd0c8] p-6"><div class="mb-14 flex justify-between font-mono text-[11px] text-[#5e665e]"><span>01</span><span>09/2025 — PRESENT</span></div><h2 class="text-2xl font-bold tracking-[-.04em]">Pluxsor</h2><p class="mt-3 text-sm leading-6 text-[#5e665e]">AI Marketing Suite for Micro Niches</p><span class="mt-10 block text-2xl text-[#afb6aa]">↗</span></article><article class="lift border border-[#cbd0c8] bg-lime p-6"><div class="mb-14 flex justify-between font-mono text-[11px] text-[#394238]"><span>02</span><span>02/2025 — PRESENT</span></div><h2 class="text-2xl font-bold tracking-[-.04em]">Zymedics.com</h2><p class="mt-3 text-sm leading-6 text-[#394238]">AI Powered healthcare platform for Doctors &amp; Patients</p><span class="mt-10 block text-2xl text-[#59634d]">↗</span></article><article class="lift border border-[#cbd0c8] p-6"><div class="mb-14 flex justify-between font-mono text-[11px] text-[#5e665e]"><span>03</span><span>01/2024 — PRESENT</span></div><h2 class="text-2xl font-bold tracking-[-.04em]">Takafulik.com</h2><p class="mt-3 text-sm leading-6 text-[#5e665e]">AI Islamic Insurance Platform</p><span class="mt-10 block text-2xl text-[#afb6aa]">↗</span></article></div></div></section>
-    <section id="stack" class="border-t border-[#d4d8d0] bg-[#e2e5de] px-6 py-16 lg:px-10 lg:py-24"><div class="mx-auto max-w-6xl"><div class="grid gap-10 lg:grid-cols-[220px_1fr]"><p class="font-mono text-[11px] uppercase tracking-[.18em] text-[#5e665e]">04 / Tech stack</p><div class="grid gap-x-8 gap-y-9 sm:grid-cols-2"><div><p class="mb-3 font-mono text-xs text-[#818980]">BACKEND</p><p class="text-xl font-bold">Python-Django <span class="text-[#9ba398]">·</span> PostgreSQL <span class="text-[#9ba398]">·</span> Docker</p></div><div><p class="mb-3 font-mono text-xs text-[#818980]">AI / DATA</p><p class="text-xl font-bold">LangChain <span class="text-[#9ba398]">·</span> CrewAI <span class="text-[#9ba398]">·</span> Langraph <span class="text-[#9ba398]">·</span> Pinecone DB</p></div><div><p class="mb-3 font-mono text-xs text-[#818980]">FRONT-END</p><p class="text-xl font-bold">Bootstrap <span class="text-[#9ba398]">·</span> HTML5 <span class="text-[#9ba398]">·</span> CSS3</p></div><div><p class="mb-3 font-mono text-xs text-[#818980]">CLOUD</p><p class="text-xl font-bold">AWS <span class="text-[#9ba398]">&amp;</span> GCP</p></div></div></div></div></section>
-    <section class="bg-lime px-6 py-14 lg:px-10"><div class="mx-auto flex max-w-6xl flex-col justify-between gap-8 sm:flex-row sm:items-end"><div><p class="font-mono text-[11px] uppercase tracking-[.18em] text-[#4d573d]">05 / Education</p><h2 class="mt-5 text-3xl font-extrabold tracking-[-.05em] sm:text-4xl">Always learning.<br>Always shipping.</h2></div><div class="grid gap-5 text-sm sm:max-w-xl sm:grid-cols-2"><div><p class="font-bold">BE in Electronics &amp; Communication</p><p class="mt-1 text-[#566044]">Biju Pattnaik University of Technology<br>09/2009 — 06/2013 · Bhubaneswar</p></div><div><p class="font-bold">XIITH SCIENCE</p><p class="mt-1 text-[#566044]">Kendriya Vidyalaya HPCL JRD, Assam<br>04/2006 — 03/2008</p></div></div></div></section>
-  </main>
-  <footer class="bg-ink px-6 py-8 text-mist lg:px-10"><div class="mx-auto flex max-w-6xl flex-col justify-between gap-4 text-xs sm:flex-row"><span class="font-mono">SANGRAM K SUNDARAY</span><span>© 2026 · Built for the next useful thing.</span><a class="text-lime" href="#top">Back to top ↑</a></div></footer>
+  </div>
+</nav>
+
+<header id="top" class="hero">
+  <div class="hero__bg">
+    <div class="hero__orb hero__orb--1"></div>
+    <div class="hero__orb hero__orb--2"></div>
+    <div class="hero__orb hero__orb--3"></div>
+  </div>
+  <div class="container">
+    <div class="hero__inner">
+      <div class="hero__content">
+        <p class="hero__eyebrow reveal">
+          <span class="hero__pulse"></span>
+          Available for meaningful problems
+        </p>
+        <h1 class="hero__name reveal reveal-delay-1">
+          Sangram K<br>
+          <span class="accent">Sundaray</span>
+        </h1>
+        <p class="hero__title reveal reveal-delay-2">
+          <strong>Tech Lead</strong> — AI &amp; Web Apps Development
+        </p>
+        <div class="hero__contacts reveal reveal-delay-3">
+          <a href="mailto:sangramz@hotmail.com" class="hero__contact-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            sangramz@hotmail.com
+          </a>
+          <a href="tel:+919937826218" class="hero__contact-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.7 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 3h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17v-.08z"/></svg>
+            +91 99378 26218
+          </a>
+          <span class="hero__contact-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            Bhubaneswar, India
+          </span>
+        </div>
+        <div class="hero__actions reveal reveal-delay-4">
+          <a href="assets/resume.pdf" class="btn btn--primary" download>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 12L3 7l1.4-1.4L7 8.2V1h2v7.2l2.6-2.6L13 7l-5 5zm-6 2h12v-2H2v2z"/></svg>
+            Download Resume
+          </a>
+          <a href="https://linkedin.com/in/sangramz" class="btn btn--ghost" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a href="https://github.com/sangramz" class="btn btn--ghost" target="_blank" rel="noreferrer">GitHub ↗</a>
+        </div>
+      </div>
+      <div class="hero__photo-wrap reveal reveal-delay-2">
+        <div class="hero__photo-frame">
+          <img src="assets/pic.jpeg" alt="Portrait of Sangram K Sundaray" class="hero__photo">
+          <span class="hero__location-tag">Bhubaneswar · IN</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section__label reveal"><span class="idx">01</span> Profile</div>
+      <div class="about__inner">
+        <div class="reveal">
+          <h2 class="section__heading" style="margin-bottom:1.5rem;">
+            Senior Web &amp; AI Developer<br>with <span style="color:var(--accent)">9+ years</span> of<br>engineering excellence.
+          </h2>
+          <p class="about__bio">
+            Specializes in building <strong>GenAI-powered features</strong>, prompt engineering, and LLM orchestration using LangChain and modern AI APIs.
+            Adept at optimizing database performance, API efficiency, and leading <strong>end-to-end technical delivery</strong> across media, healthcare, and insurance verticals.
+          </p>
+          <div class="about__links">
+            <a href="https://linkedin.com/in/sangramz" class="about__link" target="_blank" rel="noreferrer">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              linkedin.com/in/sangramz
+            </a>
+            <a href="https://github.com/sangramz" class="about__link" target="_blank" rel="noreferrer">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+              github.com/sangramz
+            </a>
+            <a href="https://sangramz.github.io" class="about__link" target="_blank" rel="noreferrer">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              sangramz.github.io
+            </a>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="about__stats">
+            <div class="stat"><div class="stat__num">9+</div><div class="stat__label">Years of experience</div></div>
+            <div class="stat"><div class="stat__num">15+</div><div class="stat__label">Clients served</div></div>
+            <div class="stat"><div class="stat__num">3</div><div class="stat__label">Live AI products</div></div>
+            <div class="stat"><div class="stat__num">5+</div><div class="stat__label">Companies worked</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="experience">
+    <div class="container">
+      <div class="section__label reveal">
+        <span class="idx">02</span> Experience
+        <span style="margin-left:auto;font-size:0.6rem;color:var(--ink-muted);">2013 — PRESENT</span>
+      </div>
+      <div class="timeline">
+        <div class="timeline__item reveal">
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <div class="timeline__header">
+              <h3 class="timeline__role">Tech Lead, Web Apps &amp; AI</h3>
+              <span class="timeline__period">12/2024 — Present</span>
+            </div>
+            <p class="timeline__company">Boldtribe Innovations Pvt Ltd · Bhubaneswar, India</p>
+            <p class="timeline__desc">Utilize LangChain and LangGraph to enhance AI-driven workflows; develop scalable Django web applications and APIs for media, healthcare, and insurance verticals. Implement prompt engineering strategies via Gemini API to drive intelligent automation.</p>
+          </div>
+        </div>
+        <div class="timeline__item reveal reveal-delay-1">
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <div class="timeline__header">
+              <h3 class="timeline__role">Software Developer, Web Apps</h3>
+              <span class="timeline__period">03/2021 — 11/2024</span>
+            </div>
+            <p class="timeline__company">ConVoyage Systems Pvt Ltd · Bhubaneswar, India</p>
+            <p class="timeline__desc">Prototyped DeFi solutions using ERC721/ERC20 token standards and launched NFT Network Maintenance infrastructure for CIFDAQ via idApps Technologies.</p>
+          </div>
+        </div>
+        <div class="timeline__item reveal reveal-delay-2">
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <div class="timeline__header">
+              <h3 class="timeline__role">Software Developer, Freelance</h3>
+              <span class="timeline__period">02/2018 — 02/2021</span>
+            </div>
+            <p class="timeline__company">Self-Employed · Remote</p>
+            <p class="timeline__desc">Delivered enterprise solutions for Fortune 500 client PwC — built a Document Abstraction Tool prototype using Python, Django, PostgreSQL, and NLTK. Also developed reseller systems and Ethereum/Metamask loyalty rewards platforms.</p>
+          </div>
+        </div>
+        <div class="timeline__item reveal reveal-delay-3">
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <div class="timeline__header">
+              <h3 class="timeline__role">Full Stack Developer</h3>
+              <span class="timeline__period">01/2015 — 01/2018</span>
+            </div>
+            <p class="timeline__company">SITSIndia · Bhubaneswar, India</p>
+            <p class="timeline__desc">LAMP and Python-Django stack development, team management, and Google/Zoho Analytics optimization.</p>
+          </div>
+        </div>
+        <div class="timeline__item reveal reveal-delay-4">
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <div class="timeline__header">
+              <h3 class="timeline__role">Web Developer</h3>
+              <span class="timeline__period">01/2014 — 01/2015</span>
+            </div>
+            <p class="timeline__company">LIT Solutions · Bhubaneswar, India</p>
+            <p class="timeline__desc">Developed responsive web applications for 15+ clients and school management software using PHP.</p>
+          </div>
+        </div>
+        <div class="timeline__item reveal">
+          <div class="timeline__dot" style="border-color:var(--ink-muted);box-shadow:none;"></div>
+          <div class="timeline__card">
+            <div class="timeline__header">
+              <h3 class="timeline__role">Management Trainee</h3>
+              <span class="timeline__period" style="color:var(--ink-muted);background:rgba(255,255,255,0.04);">08/2013 — 01/2014</span>
+            </div>
+            <p class="timeline__company">AuroIN LLC</p>
+            <p class="timeline__desc">US &amp; Europe sales operations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <div class="section__label reveal">
+        <span class="idx">03</span> Selected Projects
+        <span style="margin-left:auto;font-size:0.6rem;color:var(--ink-muted);">Building in Public</span>
+      </div>
+      <div class="projects__grid">
+        <article class="project-card reveal">
+          <div class="project__meta">
+            <span class="project__num">01</span>
+            <span class="project__period">09/2025 — Present</span>
+          </div>
+          <h3 class="project__name">Pluxsor</h3>
+          <p class="project__desc">AI Marketing Suite built for micro niches — intelligent content generation and campaign management powered by LLM orchestration.</p>
+          <div class="project__arrow">↗</div>
+        </article>
+        <article class="project-card project-card--featured reveal reveal-delay-1">
+          <div class="project__meta">
+            <span class="project__num">02</span>
+            <div style="display:flex;gap:0.4rem;align-items:center;">
+              <span class="badge badge--green">Active</span>
+              <span class="project__period">02/2025 — Present</span>
+            </div>
+          </div>
+          <h3 class="project__name" style="color:var(--accent)">Zymedics.com</h3>
+          <p class="project__desc">AI-powered healthcare platform bridging doctors and patients — intelligent diagnostic assistance, appointment management, and medical record orchestration.</p>
+          <div class="project__arrow" style="color:var(--accent)">↗</div>
+        </article>
+        <article class="project-card reveal reveal-delay-2">
+          <div class="project__meta">
+            <span class="project__num">03</span>
+            <span class="project__period">01/2024 — Present</span>
+          </div>
+          <h3 class="project__name">Takafulik.com</h3>
+          <p class="project__desc">AI-driven Islamic Insurance (Takaful) platform — Shariah-compliant policy management and risk assessment powered by intelligent automation.</p>
+          <div class="project__arrow">↗</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stack -->
+  <section id="stack" class="stack">
+    <div class="container">
+      <div class="section__label reveal"><span class="idx">04</span> Tech Stack</div>
+      <div class="stack__grid">
+        <div class="stack__category reveal">
+          <p class="stack__cat-label"><span class="cat-dot"></span>Backend</p>
+          <div class="stack__items">
+            <span class="tag">Python</span><span class="tag">Django</span><span class="tag">DRF</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Celery</span><span class="tag">Docker</span>
+          </div>
+        </div>
+        <div class="stack__category reveal reveal-delay-1">
+          <p class="stack__cat-label"><span class="cat-dot" style="background:#6ab8f7;"></span>AI / Data</p>
+          <div class="stack__items">
+            <span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">CrewAI</span><span class="tag">Pinecone</span><span class="tag">Gemini API</span><span class="tag">OpenAI</span><span class="tag">NLTK</span>
+          </div>
+        </div>
+        <div class="stack__category reveal reveal-delay-2">
+          <p class="stack__cat-label"><span class="cat-dot" style="background:var(--gold);"></span>Frontend</p>
+          <div class="stack__items">
+            <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Bootstrap</span><span class="tag">HTMX</span>
+          </div>
+        </div>
+        <div class="stack__category reveal reveal-delay-3">
+          <p class="stack__cat-label"><span class="cat-dot" style="background:#c084fc;"></span>Cloud &amp; Infra</p>
+          <div class="stack__items">
+            <span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">Nginx</span><span class="tag">Linux</span><span class="tag">Git</span>
+          </div>
+        </div>
+        <div class="stack__category reveal reveal-delay-4">
+          <p class="stack__cat-label"><span class="cat-dot" style="background:#fb923c;"></span>Web3 / Blockchain</p>
+          <div class="stack__items">
+            <span class="tag">Ethereum</span><span class="tag">ERC721</span><span class="tag">ERC20</span><span class="tag">MetaMask</span><span class="tag">Solidity</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="education">
+    <div class="container">
+      <div class="section__label reveal"><span class="idx">05</span> Education</div>
+      <div class="edu__grid">
+        <div class="edu__card reveal">
+          <div class="edu__icon">🎓</div>
+          <h3 class="edu__degree">BE in Electronics &amp; Communication</h3>
+          <p class="edu__institution">Biju Pattnaik University of Technology · Bhubaneswar</p>
+          <p class="edu__period">09/2009 — 06/2013</p>
+        </div>
+        <div class="edu__card reveal reveal-delay-1">
+          <div class="edu__icon">📚</div>
+          <h3 class="edu__degree">XII Science</h3>
+          <p class="edu__institution">Kendriya Vidyalaya HPCL JRD, Assam</p>
+          <p class="edu__period">04/2006 — 03/2008</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <p class="section__label reveal" style="justify-content:center;"><span class="idx">↓</span> Get in Touch</p>
+      <h2 class="section__heading reveal reveal-delay-1">Always learning.<br><span style="color:var(--accent)">Always shipping.</span></h2>
+      <p class="cta__sub reveal reveal-delay-2">Open to meaningful challenges — let's build something remarkable.</p>
+      <div class="cta__buttons reveal reveal-delay-3">
+        <a href="mailto:sangramz@hotmail.com" class="btn btn--primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Send Email
+        </a>
+        <a href="assets/resume.pdf" class="btn btn--ghost" download>Download Resume PDF</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <span class="footer__copy">SANGRAM K SUNDARAY · © 2026 · Built for the next useful thing.</span>
+      <a href="#top" class="footer__back">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+  document.querySelectorAll('.hero .reveal').forEach(el => { setTimeout(() => el.classList.add('visible'), 100); });
+</script>
 </body>
 </html>
